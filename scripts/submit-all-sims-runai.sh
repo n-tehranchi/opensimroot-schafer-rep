@@ -13,7 +13,7 @@ set -euo pipefail
 
 # --- Configuration (override via env or .env file) ---
 PROJECT="${RUNAI_PROJECT:-busch-lab}"
-IMAGE="${DOCKER_IMAGE:-natalietehranchi/opensimroot-drought:latest}"
+IMAGE="${DOCKER_IMAGE:-nntehranchi/opensimroot-drought:latest}"
 GPU="${GPU_COUNT:-0}"
 CPU="${CPU_COUNT:-2}"
 MEMORY="${MEMORY_LIMIT:-4Gi}"

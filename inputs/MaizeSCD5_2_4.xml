@@ -1,0 +1,1961 @@
+<SimulationModel date="xxx" defaultMaximumTimeStep="0.1" name="maize">
+	<SimulaBase name="atmosphere" />
+	<SimulaBase name="soil" />
+	<SimulaBase name="plants" objectGenerator="fieldPlanting" />
+	<SimulaBase name="simulationControls">
+		<SimulaConstant type="integer" name="SimulaStochastic::numberOfSamples">1</SimulaConstant>
+		<SimulaConstant name="randomNumberGeneratorSeed" type="int">4</SimulaConstant>
+		<SimulaBase name="integrationParameters">
+			<SimulaConstant name="defaultSpatialIntegrationLength" unit="cm">1.</SimulaConstant>
+		</SimulaBase>
+		<SimulaBase name="outputParameters">
+			<SimulaBase name="defaults">
+				<SimulaConstant name="startTime" type="time">0.</SimulaConstant>
+				<SimulaConstant name="endTime" type="time">42</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">0.1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="probeAllObjects">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="garbageCollection">
+				<SimulaConstant name="run" type="bool">1</SimulaConstant>
+				<SimulaConstant name="startTime" type="time">5</SimulaConstant>
+				<SimulaConstant name="lackTime" type="time">1</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="modelDump">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="startTime" type="time">0</SimulaConstant>
+				<SimulaConstant name="endTime" type="time">0.1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="rasterImage">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="startTime" type="time">5.</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">5.</SimulaConstant>
+				<SimulaConstant name="voxelsize" unit="cm">0.1</SimulaConstant>
+				<SimulaConstant name="substeps" unit="#" type="integer">1</SimulaConstant>
+				<SimulaConstant name="edgeSmoothing" unit="cm">0.00</SimulaConstant>
+				<SimulaConstant name="rootDiameterScalingFactor" unit="100%">1.</SimulaConstant>
+				<SimulaConstant name="includeBinaryRawImage" type="bool">false</SimulaConstant>
+				<SimulaConstant name="includeVTKImage" type="bool">false</SimulaConstant>
+				<SimulaConstant name="overlapFunction" type="string">additive</SimulaConstant>
+				<SimulaConstant name="radiusComesFrom" type="string">rootDiameter,phosphorus/radiusDepletionZone</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="vtp">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="VTU">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">1.</SimulaConstant>
+				<SimulaConstant name="includeShoots" type="bool">0</SimulaConstant>
+				<SimulaConstant name="includeRoots" type="bool">1</SimulaConstant>
+				<SimulaConstant name="includeVTUForDepletionZones" type="bool">1</SimulaConstant>
+				<SimulaConstant name="includePointData" type="bool">1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="tableOfRootNodes">
+				<SimulaConstant name="run" type="bool">0</SimulaConstant>
+				<SimulaConstant name="timeInterval" type="time">8</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="table">
+				<SimulaConstant name="run" type="bool">1</SimulaConstant>
+				<SimulaConstant name="searchingDepth" type="integer">5</SimulaConstant>
+				<SimulaConstant name="skipTheseVariables" type="string">primaryRoot, hypocotyl</SimulaConstant>
+			</SimulaBase>
+		</SimulaBase>
+	</SimulaBase>
+	<SimulaBase name="plantTemplate" />
+	<SimulaBase name="shootTemplate">
+		<SimulaLink name="extinctionCoefficient" />
+	</SimulaBase>
+	<SimulaBase name="hypocotylTemplate">
+		<SimulaBase name="dataPoints" objectGenerator="rootDataPoints" />
+		<SimulaPoint name="growthpoint" function="rootGrowthDirection" garbageCollectionOff="true">0 0 0 
+			<SimulaVariable name="rootLongitudinalGrowth" unit="cm" function="scaledRootGrowthRate" garbageCollectionOff="true" />
+			<SimulaLink name="rootDiameter" unit="cm" linksName="diameter" />
+		</SimulaPoint>
+		<SimulaBase name="branches" />
+	</SimulaBase>
+	<SimulaBase name="siblingRootTemplate">
+		<SimulaBase name="dataPoints" objectGenerator="rootDataPoints" />
+		<SimulaPoint name="growthpoint" function="rootGrowthDirection" garbageCollectionOff="true">0 0 0 
+			<SimulaVariable name="rootLongitudinalGrowth" unit="cm" function="scaledRootGrowthRate" garbageCollectionOff="true" />
+			<SimulaLink name="rootDiameter" unit="cm" linksName="diameter" />
+		</SimulaPoint>
+		<SimulaBase name="branches" />
+	</SimulaBase>
+	<SimulaBase name="dataPointTemplate" type="Coordinate">
+		<SimulaVariable name="rootDiameter" unit="cm" function="secondaryGrowth" />
+		<SimulaDerivative name="rootClassID" function="rootClassID" />
+		<SimulaDerivative name="parentRootClassID" function="rootClassID" />
+		<SimulaDerivative name="combinedRootClassID" function="rootClassID" />
+		<SimulaDerivative name="spatialRootDensity" unit="cm/cm3" function="proximity" />
+	</SimulaBase>
+	<SimulaBase name="environment">
+		<SimulaBase name="dimensions">
+			<SimulaConstant name="resolution" type="coordinate">1 1 1</SimulaConstant>
+		</SimulaBase>
+		<SimulaBase name="soil">
+			<SimulaTable name_column1="depth" unit_column1="cm" name_column2="bulkDensity" unit_column2="g/cm3" garbageCollectionOff="true">0 1.45 -20 1.42 -45 1.49 -60 1.48 -85 1.47 -120 1.40 -145 1.44 -175 1.38</SimulaTable>
+		</SimulaBase>
+		<SimulaBase name="plantingScheme">
+			<SimulaConstant name="numberOfPlantsInTheRow" type="integer">1</SimulaConstant>
+			<SimulaConstant name="numberOfRows" type="integer">1</SimulaConstant>
+			<SimulaConstant name="profileDepth" unit="cm">-150</SimulaConstant>
+			<SimulaConstant name="rowDirection" type="string">z</SimulaConstant>
+			<SimulaConstant name="rowSpacing" unit="cm">50</SimulaConstant>
+			<SimulaConstant name="inTheRowSpacing" unit="cm">25</SimulaConstant>
+			<SimulaConstant name="plantingDepth" unit="cm">-5</SimulaConstant>
+			<SimulaConstant name="plantingTime">0</SimulaConstant>
+			<SimulaConstant name="plantType" type="string">maize</SimulaConstant>
+		</SimulaBase>
+		<SimulaConstant name="startDay" unit="noUnit" type="integer">11</SimulaConstant>
+		<SimulaConstant name="startMonth" unit="noUnit" type="integer">7</SimulaConstant>
+		<SimulaConstant name="startYear" unit="noUnit" type="integer">2019</SimulaConstant>
+		<SimulaConstant name="altitude" unit="m">1947</SimulaConstant>
+		<SimulaConstant name="latitude" unit="noUnit">20.8666668</SimulaConstant>
+		<SimulaBase name="atmosphere">
+			<SimulaDerivative name="sineSolarElevationAngle" function="sineSolarElevationAngle" />
+			<SimulaDerivative name="irradiation" function="diurnalRadiationSimulator" unit="W/m2" />
+			<SimulaDerivative name="beamIrradiation" function="beamRadiationSimulator" unit="W/m2" />
+			<SimulaDerivative name="diffuseIrradiation" function="diffuseRadiationSimulator" unit="W/m2" />
+			<SimulaDerivative name="dayLightHours" function="photoPeriod" unit="hour" />
+			<SimulaConstant name="PAR/RDD" unit="100%">1.</SimulaConstant>
+			<SimulaTable name_column2="precipitation" name_column1="time" unit_column1="day" unit_column2="cm/day" interpolationMethod="step" garbageCollectionOff="true">0 0.40 1 1.87 2 2.15 3 0.65 4 0.65 5 0.51 6 0.22 7 0.25 8 1.15 9 1.06 10 0.90 11 1.39 12 0.40 13 0.83 14 0.46 15 0.40 16 0.21 17 0.68 18 0.86 19 0.66 20 0.42 21 0.52 22 0.54 23 0.41 24 0.28 25 0.78 26 1.55 27 1.66 28 0.0 60 0.0</SimulaTable>
+			<SimulaDerivative name="netRadiation" unit="W/m2" function="diurnalRadiationSimulator" />
+			<SimulaDerivative name="netRadiationSoil" unit="W/m2" function="diurnalRadiationSimulator">
+				<SimulaDerivative name="multiplier" function="soilRadiationFactor" />
+			</SimulaDerivative>
+			<SimulaConstant name="referenceVapourPressureDeficit" prettyName="reference Vapour Pressure Deficit" type="double" unit="hPa">16.4</SimulaConstant>
+			<SimulaConstant name="CO2Concentration" prettyName="CO2 Concentration" type="double" unit="umol/mol">402.9</SimulaConstant>
+			<SimulaConstant name="O2Concentration" prettyName="O2 Concentration" type="double" unit="mmol/mol">209.46</SimulaConstant>
+			<SimulaTable name_column2="relativeHumidity" name_column1="time" unit_column1="day" unit_column2="%" interpolationMethod="linear" garbageCollectionOff="true" prettyName="relative Humidity">0 57.56 1 74.38 2 74.94 3 76.31 4 77.44 5 70.88 6 65.06 7 70 8 78 9 80 10 84.06 11 74.19 12 73.75 13 74.69 14 76.69 15 68.69 16 66.25 17 70.88 18 71.38 19 71.75 20 59.19 21 59.56 22 56.38 23 61.06 24 66.5 25 72.69 26 79.75 27 76 28 85.12 29 73.94 30 82.38 31 73.88 32 68.94 33 72.31 34 69.75 35 67.56 36 67.94 37 66.75 38 70.19 39 69.31 40 62.12 41 68.5 42 76.88 43 78.69 44 85.94 45 85.44 46 83.56 47 74.25 48 66.25 49 65.62 50 73.19 51 63 52 59.88 53 70 54 70.81 55 70.44 56 74.94 57 76.5 58 74.25 59 80.62 60 71.06</SimulaTable>
+			<SimulaTable name_column2="windSpeed" name_column1="time" unit_column1="day" unit_column2="m/s" interpolationMethod="linear" garbageCollectionOff="true">0 1.82 1 1.92 2 1.25 3 1.45 4 1.02 5 1.37 6 1.77 7 1.49 8 1.01 9 0.97 10 1.53 11 0.71 12 1.41 13 1.55 14 1.16 15 1.8 16 1.77 17 1.21 18 0.95 19 1.78 20 1.73 21 1.73 22 1.21 23 1.08 24 0.98 25 1.28 26 1.42 27 1.02 28 1.47 29 1.23 30 1.66 31 1.43 32 1 33 1.34 34 0.84 35 1.45 36 0.8 37 1.29 38 1.37 39 2.16 40 2.8 41 2.18 42 2.33 43 1.83 44 1.25 45 0.98 46 1.23 47 0.91 48 1.78 49 1.91 50 1.73 51 1.19 52 1.43 53 1.46 54 1.14 55 1.62 56 1.37 57 1.31 58 1.41 59 0.87 60 0.72</SimulaTable>
+			<SimulaTable name_column2="averageDailyTemperature" name_column1="time" unit_column1="day" unit_column2="degreesC" interpolationMethod="linear" garbageCollectionOff="true">0 15.01 0.5 31.7 1 16.13 1.5 23.37 2 13.83 2.5 26.37 3 15.73 3.5 26.45 4 16.27 4.5 26.07 5 15.94 5.5 27.49 6 13.86 6.5 29.23 7 14.23 7.5 27.74 8 15.36 8.5 23.32 9 14.63 9.5 22.26 10 14.29 10.5 20.8 11 14.13 11.5 26.13 12 15.13 12.5 25.37 13 13.48 13.5 25.94 14 14.01 14.5 23.54 15 13.45 15.5 27.57 16 12.63 16.5 28.27 17 14.03 17.5 27.23 18 14.23 18.5 26.4 19 14.22 19.5 25.68 20 10.21 20.5 29.19 21 11.69 21.5 29.34 22 12.7 22.5 28.69 23 13.97 23.5 29.07 24 15.8 24.5 26.94 25 15.16 25.5 27.19 26 15.58 26.5 25.01 27 15.69 27.5 27.44 28 16 28.5 21.77 29 15.3 29.5 26.79 30 15.03 30.5 23.19 31 14.89 31.5 27.49 32 13.9 32.5 28.87 33 13.23 33.5 26.94 34 15.26 34.5 28.73 35 13.31 35.5 28.07 36 14.53 36.5 28.98 37 14.25 37.5 30.05 38 16.8 38.5 29.16 39 15.53 39.5 28.42 40 14.19 40.5 29.41 41 14.28 41.5 27.6 42 15.08 42.5 25.98 43 14.43 43.5 26.09 44 15.9 44.5 21.27 45 15.9 45.5 22.69 46 14.86 46.5 21.64 47 13.4 47.5 26.74 48 14.01 48.5 28.92 49 11.47 49.5 28.13 50 12.95 50.5 27.65 51 13.12 51.5 28.66 52 10.22 52.5 28.56 53 13.05 53.5 28.01 54 13.66 54.5 27.05 55 13.73 55.5 27.69 56 13.6 56.5 27.05 57 13.98 57.5 22.05 58 13.2 58.5 26.58 59 14.84 59.5 21.83 60 13.79 60.5 26.69</SimulaTable>
+			<SimulaConstant name="albedoSoil" unit="noUnit">0.17</SimulaConstant>
+			<SimulaConstant name="albedoCrop" unit="noUnit">0.15</SimulaConstant>
+			<SimulaConstant name="atmosphericTransmissionCoefficient">0.72</SimulaConstant>
+			<SimulaDerivative name="timeUntilNextSunset" function="timeUntilNextSunset" unit="hour" />
+			<SimulaConstant name="cloudCover">0.2</SimulaConstant>
+		</SimulaBase>
+	</SimulaBase>
+	<SimulaDirective path="environment">
+		<SimulaDirective path="soil">
+			<SimulaBase name="water">
+				<SimulaTable name_column2="initialHydraulicHead" name_column1="depth" unit_column1="cm" unit_column2="cm" garbageCollectionOff="true">0   -500 -200 -500</SimulaTable>
+				<SimulaTable name_column2="residualWaterContent" name_column1="depth" unit_column1="cm" unit_column2="100%" garbageCollectionOff="true">0 0.095 -20 0.162 -45 0.195 -60 0.175 -85 0.188 -120 0.243 -145 0.207 -175 0.166</SimulaTable>
+				<SimulaTable name_column2="saturatedWaterContent" name_column1="depth" unit_column1="cm" unit_column2="100%" garbageCollectionOff="true">0 0.414 -20 0.441 -45 0.414 -60 0.428 -85 0.444 -120 0.458 -145 0.445 -175 0.467</SimulaTable>
+				<SimulaTable name_column2="vanGenuchten:alpha" name_column1="depth" unit_column1="cm" unit_column2="1/cm" garbageCollectionOff="true">0 0.015 -20 0.030 -45 0.032 -60 0.031 -85 0.035 -120 0.036 -145 0.035 -175 0.029</SimulaTable>
+				<SimulaTable name_column2="vanGenuchten:n" name_column1="depth" unit_column1="cm" unit_column2="noUnit" garbageCollectionOff="true">0 1.294 -20 1.501 -45 1.775 -60 1.504 -85 1.510 -120 1.698 -145 1.610 -175 1.316</SimulaTable>
+				<SimulaTable name_column2="saturatedConductivity" name_column1="depth" unit_column1="cm" unit_column2="cm/day" garbageCollectionOff="true">0 20.620 -20 73.415 -45 65.150 -60 56.206 -85 86.951 -120 90.262 -145 83.655 -175 49.838</SimulaTable>
+				<SimulaConstant name="minimumConductivity" unit="cm/day">0.000001</SimulaConstant>
+				<SimulaConstant name="allowOutflow" type="bool">0</SimulaConstant>
+			</SimulaBase>
+		</SimulaDirective>
+	</SimulaDirective>
+	<SimulaDirective path="/plants">
+		<SimulaDerivative name="meanLeafAreaIndex" function="meanLeafAreaIndex" unit="cm2/cm2" />
+		<SimulaDerivative name="leafArea" function="sumOverAllPlantShoots" unit="cm2" />
+		<SimulaDerivative name="meanExtinctionCoefficient" function="meanOverAllPlantShoots" unit="noUnit" />
+		<SimulaDerivative name="plantArea" function="sumOverAllPlantShoots" unit="cm2">
+			<SimulaConstant name="name" type="string">areaPerPlant</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="stomatalResistance" unit="s/m" function="stomatalResistance" />
+		<SimulaDerivative name="meanStomatalConductance" unit="mol/m2/s" function="meanStomatalConductance" />
+		<SimulaDerivative name="canopyHeight" function="maximumCanopyHeight" unit="cm" />
+	</SimulaDirective>
+	<SimulaDirective path="plants">
+		<SimulaDerivative name="meanSunlitLeafAreaIndex" function="meanLeafAreaIndex" unit="cm2/cm2" />
+		<SimulaDerivative name="meanShadedLeafAreaIndex" function="meanLeafAreaIndex" unit="cm2/cm2" />
+		<SimulaDerivative name="sunlitLeafArea" function="sumOverAllPlantShoots" unit="cm2" />
+		<SimulaDerivative name="shadedLeafArea" function="sumOverAllPlantShoots" unit="cm2" />
+		<SimulaDerivative name="stomatalResistance" function="stomatalResistance" unit="s/m" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitStomatalResistance" function="stomatalResistance" unit="s/m" />
+		<SimulaDerivative name="shadedStomatalResistance" function="stomatalResistance" unit="s/m" />
+		<SimulaDerivative name="meanStomatalConductance" function="weighedAverageOfSunlitAndShaded" unit="mol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="meanSunlitStomatalConductance" function="meanStomatalConductance" unit="mol/m2/s" />
+		<SimulaDerivative name="meanShadedStomatalConductance" function="meanStomatalConductance" unit="mol/m2/s" />
+		<SimulaDerivative name="canopyHeight" function="maximumCanopyHeight" unit="cm" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="meanSunlitLightInterception" function="meanLightInterception" unit="W/m2" />
+		<SimulaDerivative name="meanShadedLightInterception" function="meanLightInterception" unit="W/m2" />
+	</SimulaDirective>
+	<SimulaDirective path="atmosphere">
+		<SimulaDerivative name="airPressure" unit="Pa" function="airPressure" />
+		<SimulaDerivative name="airDensity" unit="kg/m3" function="airDensity" />
+		<SimulaDerivative name="specificHeatCapacityOfAir" unit="J/kg/degreesC" function="specificHeatCapacityOfAir" />
+		<SimulaDerivative name="aerodynamicResistance" unit="s/m" function="aerodynamicResistance" />
+		<SimulaDerivative name="actualVaporPressure" unit="hPa" function="e_a" />
+		<SimulaDerivative name="saturatedVaporPressure" unit="hPa" function="e_s" />
+		<SimulaDerivative name="slopeVaporPressure" unit="hPa/degreesC" function="delta_e_s" />
+		<SimulaVariable name="potentialTranspiration" unit="cm" function="useDerivative">0 0</SimulaVariable>
+		<SimulaDerivative name="potentialTranspirationRate" unit="cm/day" function="monteithEQ">
+			<SimulaConstant name="mode" type="string">transpiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="potentialEvaporation" unit="cm/day" function="monteithEQ">
+			<SimulaConstant name="mode" type="string">evaporation</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="interception" unit="cm/day" function="Interception" />
+		<SimulaVariable name="sunlitPotentialTranspiration" function="useDerivative" unit="cm">0 0</SimulaVariable>
+		<SimulaVariable name="shadedPotentialTranspiration" function="useDerivative" unit="cm">0 0</SimulaVariable>
+		<SimulaDerivative name="potentialTranspirationRate" function="sumOfSunlitAndShaded" unit="cm/day" replacesPreviousDeclaration="true">
+			<SimulaConstant name="mode" type="string">transpiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="sunlitPotentialTranspirationRate" function="monteithEQ" unit="cm/day">
+			<SimulaConstant name="mode" type="string">transpiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="shadedPotentialTranspirationRate" function="monteithEQ" unit="cm/day">
+			<SimulaConstant name="mode" type="string">transpiration</SimulaConstant>
+		</SimulaDerivative>
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaDerivative name="rootLength" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootVolume" unit="cm3" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootSurfaceArea" unit="cm2" function="plantTotalRootFraction" />
+		<SimulaVariable name="rootLongitudinalGrowth" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="D90" unit="cm" function="D95">
+			<SimulaConstant name="threshold">0.90</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootLengthBelowTheSurface" unit="cm" function="rootLengthProfile">
+			<SimulaConstant name="y1">0.</SimulaConstant>
+			<SimulaConstant name="y2">-1000000000000.</SimulaConstant>
+		</SimulaDerivative>
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaDerivative name="rootCircumference" unit="cm" function="rootCircumference" />
+			<SimulaConstant name="rootSegmentLength" unit="cm" />
+			<SimulaConstant name="rootSegmentVolume" unit="cm3" />
+			<SimulaConstant name="rootSegmentSurfaceArea" unit="cm2" />
+		</SimulaDirective>
+		<SimulaDerivative name="rootLength" unit="cm" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemLength" unit="cm" function="rootSystemTotal" />
+		<SimulaDerivative name="rootSurfaceArea" unit="cm2" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemSurfaceArea" unit="cm2" function="rootSystemTotal" />
+		<SimulaDerivative name="rootVolume" unit="cm3" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemVolume" unit="cm3" function="rootSystemTotal" />
+		<SimulaVariable name="rootSystemLongitudinalGrowth" unit="cm" function="rootSystemTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaDerivative name="rootCircumference" unit="cm" function="rootCircumference" />
+			<SimulaConstant name="rootSegmentLength" unit="cm" />
+			<SimulaConstant name="rootSegmentVolume" unit="cm3" />
+			<SimulaConstant name="rootSegmentSurfaceArea" unit="cm2" />
+		</SimulaDirective>
+		<SimulaDerivative name="rootLength" unit="cm" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemLength" unit="cm" function="rootSystemTotal" />
+		<SimulaDerivative name="rootSurfaceArea" unit="cm2" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemSurfaceArea" unit="cm2" function="rootSystemTotal" />
+		<SimulaDerivative name="rootVolume" unit="cm3" function="rootTotal.v2" />
+		<SimulaDerivative name="rootSystemVolume" unit="cm3" function="rootSystemTotal" />
+		<SimulaVariable name="rootSystemLongitudinalGrowth" unit="cm" function="rootSystemTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="dataPointTemplate">
+		<SimulaDerivative name="rootCircumference" unit="cm" function="rootCircumference" />
+		<SimulaDerivative name="rootLength2Base" unit="cm" function="rootLength2Base" />
+		<SimulaDerivative name="rootSegmentLength" unit="cm" function="rootSegmentLength" />
+		<SimulaDerivative name="rootSegmentAge" unit="day" function="rootSegmentAge" />
+		<SimulaDerivative name="rootSegmentSurfaceArea" unit="cm2" function="rootSegmentSurfaceArea" />
+		<SimulaDerivative name="rootSegmentVolume" unit="cm3" function="rootSegmentVolume" />
+		<SimulaVariable name="rootPotentialSecondaryGrowth" unit="cm" function="potentialSecondaryGrowth" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaDerivative name="rootLength;majorAxes" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootLength;laterals" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootLength;fineLaterals" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootDryWeight;majorAxes" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootDryWeight;laterals" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootDryWeight;fineLaterals" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootSurfaceArea;majorAxes" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootSurfaceArea;laterals" unit="cm" function="plantTotalRootFraction" />
+		<SimulaDerivative name="rootSurfaceArea;fineLaterals" unit="cm" function="plantTotalRootFraction" />
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDerivative name="rootSystemLength;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemLength;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemLength;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDerivative name="rootSystemLength;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemLength;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemLength;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemDryWeight;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;majorAxes" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots2, nodalRoots3, nodalRoots4, braceRoots, braceRoots2</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;laterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">lateral, lateralOfCrownRoots</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative name="rootSystemSurfaceArea;fineLaterals" unit="cm" function="rootSystemTotal">
+			<SimulaConstant name="includedRootClasses" type="string">fineLateral, fineLateral2</SimulaConstant>
+		</SimulaDerivative>
+	</SimulaDirective>
+	<SimulaDirective path="/plantTemplate">
+		<SimulaDerivative function="plantTotal" name="plantDryWeight" unit="g" />
+		<SimulaDerivative function="plantTotalShootFraction" name="shootDryWeight" unit="g" />
+		<SimulaDerivative function="plantTotalRootFraction" name="rootDryWeight" unit="g" />
+		<SimulaDerivative function="carbonToDryWeightRatio" name="carbonToDryWeightRatio" unit="100%" />
+	</SimulaDirective>
+	<SimulaDirective path="/shootTemplate">
+		<SimulaVariable function="potentialLeafArea" name="leafArea" unit="cm2" />
+		<SimulaDerivative function="leafAreaIndex" name="leafAreaIndex" unit="cm2/cm2" />
+		<SimulaVariable function="leafDryWeight.v2" name="leafDryWeight" unit="g" />
+		<SimulaVariable function="stemDryWeight" name="stemDryWeight" unit="g" />
+		<SimulaLink name="areaPerPlant" />
+	</SimulaDirective>
+	<SimulaDirective path="/hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentDryWeight" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaDerivative function="rootTotal.v2" name="rootDryWeight" unit="g" />
+		<SimulaDerivative function="rootSystemTotal" name="rootSystemDryWeight" unit="g" />
+	</SimulaDirective>
+	<SimulaDirective path="/siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentSpecificWeight" unit="g/cm3">0</SimulaConstant>
+			<SimulaConstant name="rootSegmentDryWeight" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaDerivative function="rootTotal.v2" name="rootDryWeight" unit="g" />
+		<SimulaDerivative function="rootSystemTotal" name="rootSystemDryWeight" unit="g" />
+	</SimulaDirective>
+	<SimulaDirective path="/dataPointTemplate">
+		<SimulaDerivative function="rootSegmentDryWeight" name="rootSegmentDryWeight" unit="g" />
+	</SimulaDirective>
+	<SimulaDirective path="soil">
+		<SimulaExternal name="Swms3d" unit="noUnit" function="Swms3d" minTimeStep="0.001" />
+		<SimulaBase name="water">
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInColumn" unit_column2="cm3" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer1" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-10</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">0</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer2" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-20</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-10</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer3" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-30</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-20</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer4" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-40</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-30</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer5" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-50</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-40</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer6" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-60</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-50</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer7" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-70</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-60</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer8" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-80</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-70</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer9" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-90</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-80</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer10" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-100</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-90</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer11" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-110</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-100</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer12" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-120</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-110</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer13" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-130</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-120</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer14" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-140</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-130</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterInLayer15" unit_column2="cm3" function="getValuesFromSWMS">
+				<SimulaConstant name="lowerBound" unit="cm">-1500</SimulaConstant>
+				<SimulaConstant name="upperBound" unit="cm">-140</SimulaConstant>
+			</SimulaTable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalWaterChangeInColumn" unit_column2="cm3" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="topBoundaryFluxRate" unit_column2="cm3/day" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="bottomBoundaryFluxRate" unit_column2="cm3/day" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="relativeWaterContentInTopLayer" unit_column2="%" function="getValuesFromSWMS" />
+			<SimulaVariable name="topBoundaryFlux" unit="cm3" function="usePath">0 0 
+				<SimulaConstant name="path" type="string">topBoundaryFluxRate</SimulaConstant>
+			</SimulaVariable>
+			<SimulaVariable name="bottomBoundaryFlux" unit="cm3" function="usePath">0 0 
+				<SimulaConstant name="path" type="string">bottomBoundaryFluxRate</SimulaConstant>
+			</SimulaVariable>
+			<SimulaTable name_column1="time" unit_column1="day" name_column2="totalSinkRate" unit_column2="cm3/day" function="getValuesFromSWMS" />
+			<SimulaVariable name="totalSink" unit="cm3" function="usePath">0 0 
+				<SimulaConstant name="path" type="string">totalSinkRate</SimulaConstant>
+			</SimulaVariable>
+			<SimulaDerivative name="massBalanceError" unit="cm3" function="waterMassBalanceTest" />
+		</SimulaBase>
+	</SimulaDirective>
+	<SimulaDirective path="plants">
+		<SimulaDerivative name="rootWaterUptake" function="sumOverAllPlants" unit="cm3" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaVariable name="rootWaterUptake" unit="cm3" function="plantTotalRatesRootFraction" />
+		<SimulaVariable name="rootWaterUptakeCheck" unit="cm3" function="waterUptakeAlmDoussanSchnepfModel" />
+		<SimulaVariable name="rootWaterOutflow" unit="cm3" function="useDerivative" />
+		<SimulaTable name_column2="rootWaterOutflowRate" unit_column2="cm3/day" name_column1="time" unit_column1="day" garbageCollectionOff="true">-1 0</SimulaTable>
+		<SimulaTable name_column1="time" name_column2="waterPotentialAtTheCollar" unit_column1="day" unit_column2="hPa" function="getValuesFromPlantWaterUptake" garbageCollectionOff="true">-1 -10 0 -10</SimulaTable>
+		<SimulaDerivative name="rootSystemHydraulicConductivity1" unit="cm3/day/g/hPa" function="hydraulicConductivityRootSystem" />
+		<SimulaDerivative name="rootSystemHydraulicConductivity2" unit="cm3/day/cm2/hPa" function="hydraulicConductivityRootSystem" />
+		<SimulaDerivative name="rootSystemHydraulicConductivity3" unit="cm3/day/cm3/hPa" function="hydraulicConductivityRootSystem" />
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaVariable name="potentialTranspiration" unit="cm3" function="useDerivative" />
+		<SimulaVariable name="shadedPotentialTranspiration" unit="cm3" function="useDerivative" />
+		<SimulaVariable name="sunlitPotentialTranspiration" unit="cm3" function="useDerivative" />
+		<SimulaDerivative name="potentialTranspirationRate" unit="cm3/day" function="sumOfSunlitAndShaded" />
+		<SimulaDerivative name="sunlitPotentialTranspirationRate" unit="cm3/day" function="simplePotentialTranspirationRate" />
+		<SimulaDerivative name="shadedPotentialTranspirationRate" unit="cm3/day" function="simplePotentialTranspirationRate" />
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentWaterUptakeRate" unit="cm3/day">0</SimulaConstant>
+			<SimulaConstant name="rootSegmentWaterUptake" unit="cm3">0</SimulaConstant>
+			<SimulaTable name_column1="time" name_column2="hydraulicHeadAtRootSurface" unit_column1="day" unit_column2="cm" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" name_column2="volumetricWaterContentAtTheRootSurface" unit_column1="day" unit_column2="cm3/cm3" function="getValuesFromSWMS" />
+		</SimulaDirective>
+		<SimulaVariable name="rootWaterUptake" unit="cm3" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemWaterUptake" unit="cm3" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentWaterUptakeRate" unit="cm3/day">0</SimulaConstant>
+			<SimulaConstant name="rootSegmentPotentialWaterUptake" unit="cm3">0</SimulaConstant>
+			<SimulaConstant name="rootSegmentWaterUptake" unit="cm3">0</SimulaConstant>
+			<SimulaTable name_column1="time" name_column2="hydraulicHeadAtRootSurface" unit_column1="day" unit_column2="cm" function="getValuesFromSWMS" />
+			<SimulaTable name_column1="time" name_column2="volumetricWaterContentAtTheRootSurface" unit_column1="day" unit_column2="cm3/cm3" function="getValuesFromSWMS" />
+		</SimulaDirective>
+		<SimulaVariable name="rootWaterUptake" unit="cm3" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemWaterUptake" unit="cm3" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="dataPointTemplate">
+		<SimulaVariable name="rootSegmentWaterUptake" unit="cm3" function="useDerivative" />
+		<SimulaTable name_column1="time" name_column2="rootSegmentWaterUptakeRate" unit_column1="day" unit_column2="cm3/day" function="getValuesFromPlantWaterUptake">-100000 0</SimulaTable>
+		<SimulaTable name_column1="time" name_column2="volumetricWaterContentAtTheRootSurface" unit_column1="day" unit_column2="cm3/cm3" function="getValuesFromSWMS" integrationFunction="BackwardEuler" />
+		<SimulaTable name_column1="time" name_column2="xylemWaterPotential" unit_column1="day" unit_column2="cm" function="getValuesFromPlantWaterUptake">-1 -10</SimulaTable>
+		<SimulaTable name_column1="time" name_column2="hydraulicHeadAtRootSurface" unit_column1="day" unit_column2="cm" function="getValuesFromSWMS" />
+		<SimulaLink name="radialHydraulicConductivity" unit="cm/day/hPa" />
+		<SimulaLink name="lateralHydraulicConductivity" unit="cm4/day/hPa" />
+		<SimulaDerivative name="rootSegmentLateralHydraulicConductivity" unit="cm3/day/hPa" function="hydraulicConductivity" />
+		<SimulaDerivative name="rootSegmentRadialHydraulicConductivity" unit="cm3/day/hPa" function="hydraulicConductivity" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaVariable name="rootGrowthScalingFactor" unit="100%" function="rootGrowthScalingFactor" />
+		<SimulaVariable name="rootGrowthScalingFactor;majorAxes" unit="100%" function="rootGrowthScalingFactor" />
+		<SimulaVariable name="secondaryRootGrowthScalingFactor" unit="100%" function="rootGrowthScalingFactor" />
+		<SimulaDerivative name="relativeCarbonAllocation2Roots" unit="100%" function="relativeCarbonAllocation2RootsOneMinusShoot" />
+		<SimulaDerivative name="relativeCarbonAllocation2Shoot" unit="100%" function="relativeCarbonAllocation2ShootPotentialGrowth" />
+		<SimulaVariable name="carbonAllocation2Shoot" unit="g" function="carbonAllocation2Shoot" />
+		<SimulaVariable name="carbonAllocation2Roots" unit="g" function="carbonAllocation2Roots" />
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaDerivative name="relativeCarbonAllocation2Stems" unit="100%" function="relativeCarbonAllocation2StemsOneMinusLeafs" />
+		<SimulaDerivative name="relativeCarbonAllocation2Leafs" unit="100%" function="relativeCarbonAllocation2LeafsFromInputFile" />
+		<SimulaVariable name="carbonAllocation2Leafs" unit="g" function="carbonAllocation2Leafs" />
+		<SimulaVariable name="carbonAllocation2Stems" unit="g" function="carbonAllocation2Stems" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaVariable name="plantCarbonIncome" unit="g" function="plantCarbonIncomeRate" />
+		<SimulaVariable name="carbonAvailableForGrowth" unit="g" function="carbonAvailableForGrowth" />
+		<SimulaVariable name="carbonReserves" unit="g" function="carbonReserves" integrationFunction="Heuns" />
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaVariable name="photosynthesisLintul" function="photosynthesisLintulV2" unit="g" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="lightInterception" unit="W/m2" function="lightInterception" />
+		<SimulaDerivative name="leafIrradiation" function="leafIrradiation" unit="W/m2" />
+		<SimulaDerivative name="sunlitLeafIrradiation" function="sunlitLeafIrradiation" unit="W/m2" />
+		<SimulaDerivative name="shadedLeafIrradiation" function="shadedLeafIrradiation" unit="W/m2" />
+		<SimulaVariable name="photosynthesis" function="integratePhotosynthesisRate" unit="g" replacesPreviousDeclaration="true" />
+		<SimulaVariable name="sunlitPhotosynthesis" function="integratePhotosynthesisRate" unit="g" />
+		<SimulaVariable name="shadedPhotosynthesis" function="integratePhotosynthesisRate" unit="g" />
+		<SimulaDerivative name="photosynthesisRate" function="weighedAverageOfSunlitAndShaded" unit="umol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitPhotosynthesisRate" function="photosynthesisRateFarquhar" unit="umol/m2/s" />
+		<SimulaDerivative name="shadedPhotosynthesisRate" function="photosynthesisRateFarquhar" unit="umol/m2/s" />
+		<SimulaDerivative name="carbonLimitedPhotosynthesisRate" function="weighedAverageOfSunlitAndShaded" unit="umol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitCarbonLimitedPhotosynthesisRate" function="carbonLimitedPhotosynthesisRate" unit="umol/m2/s" />
+		<SimulaDerivative name="shadedCarbonLimitedPhotosynthesisRate" function="carbonLimitedPhotosynthesisRate" unit="umol/m2/s" />
+		<SimulaDerivative name="lightLimitedPhotosynthesisRate" function="weighedAverageOfSunlitAndShaded" unit="umol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitLightLimitedPhotosynthesisRate" function="lightLimitedPhotosynthesisRate" unit="umol/m2/s" />
+		<SimulaDerivative name="shadedLightLimitedPhotosynthesisRate" function="lightLimitedPhotosynthesisRate" unit="umol/m2/s" />
+		<SimulaDerivative name="mesophyllCO2Concentration" function="weighedAverageOfSunlitAndShaded" unit="umol/mol" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitMesophyllCO2Concentration" function="mesophyllCO2Concentration" unit="umol/mol" />
+		<SimulaDerivative name="shadedMesophyllCO2Concentration" function="mesophyllCO2Concentration" unit="umol/mol" />
+		<SimulaDerivative name="PEPCarboxylationRate" function="weighedAverageOfSunlitAndShaded" unit="umol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitPEPCarboxylationRate" function="PEPCarboxylationRate" unit="umol/m2/s" />
+		<SimulaDerivative name="shadedPEPCarboxylationRate" function="PEPCarboxylationRate" unit="umol/m2/s" />
+		<SimulaDerivative name="bundleSheathCO2Concentration" function="weighedAverageOfSunlitAndShaded" unit="umol/mol" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitBundleSheathCO2Concentration" function="bundleSheathCO2Concentration" unit="umol/mol" />
+		<SimulaDerivative name="shadedBundleSheathCO2Concentration" function="bundleSheathCO2Concentration" unit="umol/mol" />
+		<SimulaDerivative name="CO2Leakage" function="weighedAverageOfSunlitAndShaded" unit="umol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitCO2Leakage" function="CO2Leakage" unit="umol/m2/s" />
+		<SimulaDerivative name="shadedCO2Leakage" function="CO2Leakage" unit="umol/m2/s" />
+		<SimulaDerivative name="mesophyllO2Concentration" function="weighedAverageOfSunlitAndShaded" unit="mmol/mol" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitMesophyllO2Concentration" function="mesophyllO2Concentration" unit="mmol/mol" />
+		<SimulaDerivative name="shadedMesophyllO2Concentration" function="mesophyllO2Concentration" unit="mmol/mol" />
+		<SimulaDerivative name="bundleSheathO2Concentration" function="weighedAverageOfSunlitAndShaded" unit="mmol/mol" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitBundleSheathO2Concentration" function="bundleSheathO2Concentration" unit="mmol/mol" />
+		<SimulaDerivative name="shadedBundleSheathO2Concentration" function="bundleSheathO2Concentration" unit="mmol/mol" />
+		<SimulaDerivative name="O2Leakage" function="weighedAverageOfSunlitAndShaded" unit="mmol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitO2Leakage" function="O2Leakage" unit="mmol/m2/s" />
+		<SimulaDerivative name="shadedO2Leakage" function="O2Leakage" unit="mmol/m2/s" />
+		<SimulaDerivative name="stomatalConductance" function="weighedAverageOfSunlitAndShaded" unit="mol/m2/s" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitStomatalConductance" function="stomatalConductance" unit="mol/m2/s" />
+		<SimulaDerivative name="shadedStomatalConductance" function="stomatalConductance" unit="mol/m2/s" />
+		<SimulaDerivative name="leafTemperature" function="weighedAverageOfSunlitAndShaded" unit="degreesC" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitLeafTemperature" function="leafTemperature" unit="degreesC" />
+		<SimulaDerivative name="shadedLeafTemperature" function="leafTemperature" unit="degreesC" />
+		<SimulaVariable name="cropHeight" function="cropHeight" unit="cm" />
+		<SimulaVariable name="potentialCropHeight" function="cropHeight" unit="cm" />
+		<SimulaVariable name="potentialLeafArea" unit="cm2" function="potentialLeafGrowthRate" />
+		<SimulaVariable name="leafArea" unit="cm2" function="leafArea" replacesPreviousDeclaration="whenExisting" />
+		<SimulaDerivative name="leafAreaReductionCoefficient" unit="cm2/cm2" function="leafAreaReductionCoefficient" />
+		<SimulaDerivative name="sunlitLeafArea" unit="cm2" function="sunlitLeafArea" />
+		<SimulaDerivative name="shadedLeafArea" unit="cm2" function="sunlitLeafArea" />
+		<SimulaDerivative name="sunlitLeafAreaIndex" function="sunlitLeafAreaIndex" />
+		<SimulaDerivative name="shadedLeafAreaIndex" function="shadedLeafAreaIndex" />
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaVariable name="rootPotentialLongitudinalGrowth" unit="cm" function="potentialRootGrowthRate" />
+		</SimulaDirective>
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaVariable name="rootPotentialLongitudinalGrowth" unit="cm" function="potentialRootGrowthRate" />
+		</SimulaDirective>
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaDerivative name="rootGrowthImpedance" function="rootGrowthImpedanceRateMultiplier" />
+			<SimulaDerivative name="rootDiameterImpedance" function="rootDiameterImpedanceMultiplier" />
+			<SimulaDerivative name="soilPenetrationResistance" unit="kPa" function="rootImpedanceGao" />
+		</SimulaDirective>
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaDerivative name="rootGrowthImpedance" function="rootGrowthImpedanceRateMultiplier" />
+			<SimulaDerivative name="rootDiameterImpedance" function="rootDiameterImpedanceMultiplier" />
+			<SimulaDerivative name="soilPenetrationResistance" unit="kPa" function="rootImpedanceGao" />
+		</SimulaDirective>
+	</SimulaDirective>
+	<SimulaDirective path="/dataPointTemplate">
+		<SimulaDerivative name="rootGrowthImpedance" function="rootGrowthImpedanceRateMultiplier" />
+		<SimulaDerivative name="rootDiameterImpedance" function="rootDiameterImpedanceMultiplier" />
+		<SimulaDerivative name="soilPenetrationResistance" unit="kPa" function="rootImpedanceGao" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaVariable name="plantPotentialCarbonSinkForGrowth" unit="g" function="plantTotal" />
+		<SimulaVariable name="rootPotentialCarbonSinkForGrowth" unit="g" function="plantTotal" />
+		<SimulaVariable name="rootPotentialCarbonSinkForGrowth;majorAxes" unit="g" function="plantTotal" />
+		<SimulaVariable name="rootSecondaryPotentialCarbonSinkForGrowth" unit="g" function="plantTotal" />
+		<SimulaVariable name="shootPotentialCarbonSinkForGrowth" unit="g" function="plantTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaVariable name="leafPotentialCarbonSinkForGrowth" unit="g" function="leafPotentialCarbonSinkForGrowth" />
+		<SimulaVariable name="stemPotentialCarbonSinkForGrowth" unit="g" function="stemPotentialCarbonSinkForGrowth" />
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaVariable name="rootSegmentPotentialCarbonSinkForGrowth" unit="g" function="rootNodePotentialCarbonSinkForGrowth" />
+			<SimulaConstant name="rootSegmentSecondaryPotentialCarbonSinkForGrowth" unit="g" />
+		</SimulaDirective>
+		<SimulaVariable name="rootSystemPotentialCarbonSinkForGrowth" unit="g" function="rootSystemTotalRates" />
+		<SimulaVariable name="rootSystemPotentialCarbonSinkForGrowth;majorAxes" unit="g" function="rootSystemTotalRates">0 
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots1, nodalRoots2, nodalRoots3, nodalRoots4, nodalRoots5, braceRoots, braceRoots1, braceRoots2, braceRoots3, basalWhorl1, basalWhorl2, basalWhorl3, basalWhorl4</SimulaConstant>
+		</SimulaVariable>
+		<SimulaVariable name="rootSecondaryPotentialCarbonSinkForGrowth" unit="g" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemSecondaryPotentialCarbonSinkForGrowth" unit="g" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaVariable name="rootSegmentPotentialCarbonSinkForGrowth" unit="g" function="rootNodePotentialCarbonSinkForGrowth" />
+			<SimulaConstant name="rootSegmentSecondaryPotentialCarbonSinkForGrowth" unit="g" />
+		</SimulaDirective>
+		<SimulaVariable name="rootSystemPotentialCarbonSinkForGrowth" unit="g" function="rootSystemTotalRates" />
+		<SimulaVariable name="rootSystemPotentialCarbonSinkForGrowth;majorAxes" unit="g" function="rootSystemTotalRates">0 
+			<SimulaConstant name="includedRootClasses" type="string">hypocotyl, primaryRoot, seminal, nodalRoots, nodalRoots1, nodalRoots2, nodalRoots3, nodalRoots4, nodalRoots5, braceRoots, braceRoots1, braceRoots2, braceRoots3, basalWhorl1, basalWhorl2, basalWhorl3, basalWhorl4</SimulaConstant>
+		</SimulaVariable>
+		<SimulaVariable name="rootSecondaryPotentialCarbonSinkForGrowth" unit="g" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemSecondaryPotentialCarbonSinkForGrowth" unit="g" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="dataPointTemplate">
+		<SimulaVariable name="rootSegmentSecondaryPotentialCarbonSinkForGrowth" unit="g" function="rootNodePotentialCarbonSinkForGrowth" />
+		<SimulaConstant name="rootSegmentPotentialCarbonSinkForGrowth" unit="g" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaVariable name="plantRespiration" unit="g" function="plantTotalRates" />
+		<SimulaVariable name="shootRespiration" unit="g" function="plantTotalRatesShootFraction" />
+		<SimulaVariable name="rootRespiration" unit="g" function="plantTotalRatesRootFraction" />
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaVariable name="leafRespiration" unit="g" function="useDerivative" replacesPreviousDeclaration="true" />
+		<SimulaVariable name="shadedLeafRespiration" unit="g" function="useDerivative" />
+		<SimulaVariable name="sunlitLeafRespiration" unit="g" function="useDerivative" />
+		<SimulaDerivative name="leafRespirationRate" unit="g/day" function="sumOfSunlitAndShaded" replacesPreviousDeclaration="true" />
+		<SimulaDerivative name="sunlitLeafRespirationRate" unit="g/day" function="leafRespirationRateFarquhar" />
+		<SimulaDerivative name="shadedLeafRespirationRate" unit="g/day" function="leafRespirationRateFarquhar" />
+		<SimulaVariable name="stemRespiration" unit="g" function="stemRespirationRateFarquhar">
+			<SimulaConstant name="rateMultiplier">0.5</SimulaConstant>
+		</SimulaVariable>
+	</SimulaDirective>
+	<SimulaDirective path="hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentRespiration" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaVariable name="rootRespiration" unit="g" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemRespiration" unit="g" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentRespiration" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaVariable name="rootRespiration" unit="g" function="rootTotalRates" />
+		<SimulaVariable name="rootSystemRespiration" unit="g" function="rootSystemTotalRates" />
+	</SimulaDirective>
+	<SimulaDirective path="dataPointTemplate">
+		<SimulaVariable name="rootSegmentRespiration" unit="g/day" function="rootSegmentRespirationRate" />
+	</SimulaDirective>
+	<SimulaDirective path="/plantTemplate">
+		<SimulaVariable name="rootCarbonCosts" unit="g" function="sum">0 
+			<SimulaConstant name="paths" type="string">rootCarbonCostOfExudates;rootCarbonCostOfNutrientUptake;rootCarbonCostOfBiologicalNitrogenFixation</SimulaConstant>
+		</SimulaVariable>
+		<SimulaDerivative name="plantCarbonBalance" unit="g" function="plantCarbonBalance" />
+		<SimulaVariable name="rootCarbonCostOfExudates" unit="g" function="plantTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="/hypocotylTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentCarbonCostOfExudates" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaVariable name="rootCarbonCostOfExudates" unit="g" function="rootTotal.v2" />
+		<SimulaVariable name="rootSystemCarbonCostOfExudates" unit="g" function="rootSystemTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="/siblingRootTemplate">
+		<SimulaDirective path="growthpoint">
+			<SimulaConstant name="rootSegmentCarbonCostOfExudates" unit="g">0</SimulaConstant>
+		</SimulaDirective>
+		<SimulaVariable name="rootCarbonCostOfExudates" unit="g" function="rootTotal.v2" />
+		<SimulaVariable name="rootSystemCarbonCostOfExudates" unit="g" function="rootSystemTotal" />
+	</SimulaDirective>
+	<SimulaDirective path="/dataPointTemplate">
+		<SimulaVariable name="rootSegmentCarbonCostOfExudates" unit="g" function="carbonCostOfExudates" />
+	</SimulaDirective>
+	<SimulaDirective path="/dataPointTemplate">
+		<SimulaLink name="rootHairDiameter" />
+		<SimulaLink name="rootHairLength" unit="cm" />
+		<SimulaLink name="rootHairDensity" unit="#/cm" />
+		<SimulaDerivative function="rootSegmentRootHairSurfaceArea" name="rootHairSurfaceArea" unit="cm2/cm" />
+	</SimulaDirective>
+	<SimulaDirective path="plantTemplate">
+		<SimulaDerivative name="stressFactor" function="stressFactor" />
+		<SimulaDerivative name="stressFactor:impactOn:photosynthesis" function="stressFactor" />
+		<SimulaDerivative name="stressFactor:impactOn:stomatalConductance" function="stressFactor" />
+		<SimulaDerivative name="stressFactor:impactOn:leafAreaExpantionRate" function="stressFactor" />
+		<SimulaDerivative name="stressFactor:impactOn:cropHeightGrowthSpeed" function="stressFactor" />
+		<SimulaDerivative name="stressFactor:impactOn:rootPotentialLongitudinalGrowth" function="stressFactor" />
+		<SimulaBase name="water">
+			<SimulaDerivative name="nutrientStressFactor" unit="100%" function="waterStressFactor" />
+		</SimulaBase>
+	</SimulaDirective>
+	<SimulaDirective path="shootTemplate">
+		<SimulaVariable name="stressAdjustedPotentialLeafArea" unit="cm2" function="stressAdjustedPotentialLeafGrowthRate" />
+	</SimulaDirective>
+	<SimulaDirective path="soil">
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_00-10" unit="cm">
+			<SimulaConstant name="y1">0</SimulaConstant>
+			<SimulaConstant name="y2">-10</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_10-20" unit="cm">
+			<SimulaConstant name="y1">-10</SimulaConstant>
+			<SimulaConstant name="y2">-20</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_20-30" unit="cm">
+			<SimulaConstant name="y1">-20</SimulaConstant>
+			<SimulaConstant name="y2">-30</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_30-40" unit="cm">
+			<SimulaConstant name="y1">-30</SimulaConstant>
+			<SimulaConstant name="y2">-40</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_40-50" unit="cm">
+			<SimulaConstant name="y1">-40</SimulaConstant>
+			<SimulaConstant name="y2">-50</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_50-60" unit="cm">
+			<SimulaConstant name="y1">-50</SimulaConstant>
+			<SimulaConstant name="y2">-60</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_60-70" unit="cm">
+			<SimulaConstant name="y1">-60</SimulaConstant>
+			<SimulaConstant name="y2">-70</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_70-80" unit="cm">
+			<SimulaConstant name="y1">-70</SimulaConstant>
+			<SimulaConstant name="y2">-80</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_80-90" unit="cm">
+			<SimulaConstant name="y1">-80</SimulaConstant>
+			<SimulaConstant name="y2">-90</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_90-100" unit="cm">
+			<SimulaConstant name="y1">-90</SimulaConstant>
+			<SimulaConstant name="y2">-100</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_100-110" unit="cm">
+			<SimulaConstant name="y1">-100</SimulaConstant>
+			<SimulaConstant name="y2">-110</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_110-120" unit="cm">
+			<SimulaConstant name="y1">-110</SimulaConstant>
+			<SimulaConstant name="y2">-120</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_120-130" unit="cm">
+			<SimulaConstant name="y1">-120</SimulaConstant>
+			<SimulaConstant name="y2">-130</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_130-140" unit="cm">
+			<SimulaConstant name="y1">-130</SimulaConstant>
+			<SimulaConstant name="y2">-140</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootLengthProfile" name="RootLengthProfile_140-150" unit="cm">
+			<SimulaConstant name="y1">-140</SimulaConstant>
+			<SimulaConstant name="y2">-1500</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_00-10" unit="g">
+			<SimulaConstant name="y1">0</SimulaConstant>
+			<SimulaConstant name="y2">-10</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_10-20" unit="g">
+			<SimulaConstant name="y1">-10</SimulaConstant>
+			<SimulaConstant name="y2">-20</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_20-30" unit="g">
+			<SimulaConstant name="y1">-20</SimulaConstant>
+			<SimulaConstant name="y2">-30</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_30-40" unit="g">
+			<SimulaConstant name="y1">-30</SimulaConstant>
+			<SimulaConstant name="y2">-40</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_40-50" unit="g">
+			<SimulaConstant name="y1">-40</SimulaConstant>
+			<SimulaConstant name="y2">-50</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_50-60" unit="g">
+			<SimulaConstant name="y1">-50</SimulaConstant>
+			<SimulaConstant name="y2">-60</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_60-70" unit="g">
+			<SimulaConstant name="y1">-60</SimulaConstant>
+			<SimulaConstant name="y2">-70</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_70-80" unit="g">
+			<SimulaConstant name="y1">-70</SimulaConstant>
+			<SimulaConstant name="y2">-80</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_80-90" unit="g">
+			<SimulaConstant name="y1">-80</SimulaConstant>
+			<SimulaConstant name="y2">-90</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_90-100" unit="g">
+			<SimulaConstant name="y1">-90</SimulaConstant>
+			<SimulaConstant name="y2">-100</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_100-110" unit="g">
+			<SimulaConstant name="y1">-100</SimulaConstant>
+			<SimulaConstant name="y2">-110</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_110-120" unit="g">
+			<SimulaConstant name="y1">-110</SimulaConstant>
+			<SimulaConstant name="y2">-120</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_120-130" unit="g">
+			<SimulaConstant name="y1">-120</SimulaConstant>
+			<SimulaConstant name="y2">-130</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_130-140" unit="g">
+			<SimulaConstant name="y1">-130</SimulaConstant>
+			<SimulaConstant name="y2">-140</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootDryWeightProfile_140-150" unit="g">
+			<SimulaConstant name="y1">-140</SimulaConstant>
+			<SimulaConstant name="y2">-1500</SimulaConstant>
+			<SimulaConstant name="property" type="string">DryWeight</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_00-10" unit="g">
+			<SimulaConstant name="y1">0</SimulaConstant>
+			<SimulaConstant name="y2">-10</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_10-20" unit="g">
+			<SimulaConstant name="y1">-10</SimulaConstant>
+			<SimulaConstant name="y2">-20</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_20-30" unit="g">
+			<SimulaConstant name="y1">-20</SimulaConstant>
+			<SimulaConstant name="y2">-30</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_30-40" unit="g">
+			<SimulaConstant name="y1">-30</SimulaConstant>
+			<SimulaConstant name="y2">-40</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_40-50" unit="g">
+			<SimulaConstant name="y1">-40</SimulaConstant>
+			<SimulaConstant name="y2">-50</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_50-60" unit="g">
+			<SimulaConstant name="y1">-50</SimulaConstant>
+			<SimulaConstant name="y2">-60</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_60-70" unit="g">
+			<SimulaConstant name="y1">-60</SimulaConstant>
+			<SimulaConstant name="y2">-70</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_70-80" unit="g">
+			<SimulaConstant name="y1">-70</SimulaConstant>
+			<SimulaConstant name="y2">-80</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_80-90" unit="g">
+			<SimulaConstant name="y1">-80</SimulaConstant>
+			<SimulaConstant name="y2">-90</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_90-100" unit="g">
+			<SimulaConstant name="y1">-90</SimulaConstant>
+			<SimulaConstant name="y2">-100</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_100-110" unit="g">
+			<SimulaConstant name="y1">-100</SimulaConstant>
+			<SimulaConstant name="y2">-110</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_110-120" unit="g">
+			<SimulaConstant name="y1">-110</SimulaConstant>
+			<SimulaConstant name="y2">-120</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_120-130" unit="g">
+			<SimulaConstant name="y1">-120</SimulaConstant>
+			<SimulaConstant name="y2">-130</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_130-140" unit="g">
+			<SimulaConstant name="y1">-130</SimulaConstant>
+			<SimulaConstant name="y2">-140</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootRespirationProfile_140-150" unit="g">
+			<SimulaConstant name="y1">-140</SimulaConstant>
+			<SimulaConstant name="y2">-1500</SimulaConstant>
+			<SimulaConstant name="property" type="string">Respiration</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_00-10" unit="g">
+			<SimulaConstant name="y1">0</SimulaConstant>
+			<SimulaConstant name="y2">-10</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_10-20" unit="g">
+			<SimulaConstant name="y1">-10</SimulaConstant>
+			<SimulaConstant name="y2">-20</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_20-30" unit="g">
+			<SimulaConstant name="y1">-20</SimulaConstant>
+			<SimulaConstant name="y2">-30</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_30-40" unit="g">
+			<SimulaConstant name="y1">-30</SimulaConstant>
+			<SimulaConstant name="y2">-40</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_40-50" unit="g">
+			<SimulaConstant name="y1">-40</SimulaConstant>
+			<SimulaConstant name="y2">-50</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_50-60" unit="g">
+			<SimulaConstant name="y1">-50</SimulaConstant>
+			<SimulaConstant name="y2">-60</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_60-70" unit="g">
+			<SimulaConstant name="y1">-60</SimulaConstant>
+			<SimulaConstant name="y2">-70</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_70-80" unit="g">
+			<SimulaConstant name="y1">-70</SimulaConstant>
+			<SimulaConstant name="y2">-80</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_80-90" unit="g">
+			<SimulaConstant name="y1">-80</SimulaConstant>
+			<SimulaConstant name="y2">-90</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_90-100" unit="g">
+			<SimulaConstant name="y1">-90</SimulaConstant>
+			<SimulaConstant name="y2">-100</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_100-110" unit="g">
+			<SimulaConstant name="y1">-100</SimulaConstant>
+			<SimulaConstant name="y2">-110</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_110-120" unit="g">
+			<SimulaConstant name="y1">-110</SimulaConstant>
+			<SimulaConstant name="y2">-120</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_120-130" unit="g">
+			<SimulaConstant name="y1">-120</SimulaConstant>
+			<SimulaConstant name="y2">-130</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_130-140" unit="g">
+			<SimulaConstant name="y1">-130</SimulaConstant>
+			<SimulaConstant name="y2">-140</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootExudationProfile_140-150" unit="g">
+			<SimulaConstant name="y1">-140</SimulaConstant>
+			<SimulaConstant name="y2">-1500</SimulaConstant>
+			<SimulaConstant name="property" type="string">CarbonCostOfExudates</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_00-10" unit="g">
+			<SimulaConstant name="y1">0</SimulaConstant>
+			<SimulaConstant name="y2">-10</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_10-20" unit="g">
+			<SimulaConstant name="y1">-10</SimulaConstant>
+			<SimulaConstant name="y2">-20</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_20-30" unit="g">
+			<SimulaConstant name="y1">-20</SimulaConstant>
+			<SimulaConstant name="y2">-30</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_30-40" unit="g">
+			<SimulaConstant name="y1">-30</SimulaConstant>
+			<SimulaConstant name="y2">-40</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_40-50" unit="g">
+			<SimulaConstant name="y1">-40</SimulaConstant>
+			<SimulaConstant name="y2">-50</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_50-60" unit="g">
+			<SimulaConstant name="y1">-50</SimulaConstant>
+			<SimulaConstant name="y2">-60</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_60-70" unit="g">
+			<SimulaConstant name="y1">-60</SimulaConstant>
+			<SimulaConstant name="y2">-70</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_70-80" unit="g">
+			<SimulaConstant name="y1">-70</SimulaConstant>
+			<SimulaConstant name="y2">-80</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_80-90" unit="g">
+			<SimulaConstant name="y1">-80</SimulaConstant>
+			<SimulaConstant name="y2">-90</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_90-100" unit="g">
+			<SimulaConstant name="y1">-90</SimulaConstant>
+			<SimulaConstant name="y2">-100</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_100-110" unit="g">
+			<SimulaConstant name="y1">-100</SimulaConstant>
+			<SimulaConstant name="y2">-110</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_110-120" unit="g">
+			<SimulaConstant name="y1">-110</SimulaConstant>
+			<SimulaConstant name="y2">-120</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_120-130" unit="g">
+			<SimulaConstant name="y1">-120</SimulaConstant>
+			<SimulaConstant name="y2">-130</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_130-140" unit="g">
+			<SimulaConstant name="y1">-130</SimulaConstant>
+			<SimulaConstant name="y2">-140</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaDerivative function="rootPropertyDepthProfile" name="RootWaterUptakeProfile_140-150" unit="g">
+			<SimulaConstant name="y1">-140</SimulaConstant>
+			<SimulaConstant name="y2">-1500</SimulaConstant>
+			<SimulaConstant name="property" type="string">WaterUptake</SimulaConstant>
+		</SimulaDerivative>
+		<SimulaBase name="inTheRowCoring">
+			<SimulaDerivative function="virtualCoring" name="00.000,00.000" unit="cm">
+				<SimulaConstant name="center" type="coordinate">0 0 0</SimulaConstant>
+				<SimulaConstant name="radius" unit="cm">4.5</SimulaConstant>
+				<SimulaConstant name="coringDepth" unit="cm">-200</SimulaConstant>
+		
+				<SimulaConstant name="verticalSpacing" unit="cm">10</SimulaConstant></SimulaDerivative></SimulaBase>
+		<SimulaBase name="betweenTheRowCoring">
+			<SimulaDerivative function="virtualCoring" name="05.500,00.000" unit="cm">
+				<SimulaConstant name="center" type="coordinate">5.5 0 0</SimulaConstant>
+				<SimulaConstant name="radius" unit="cm">4.5</SimulaConstant>
+				<SimulaConstant name="coringDepth" unit="cm">-200</SimulaConstant>
+		
+				<SimulaConstant name="verticalSpacing" unit="cm">10</SimulaConstant></SimulaDerivative></SimulaBase>
+	</SimulaDirective>
+	<SimulaDirective path="/dataPointTemplate">
+		<SimulaLink name="aerenchymaFormation" unit="100%" />
+	</SimulaDirective>
+	<SimulaBase name="rootTypeParameters">
+		<SimulaBase name="maize">
+			<SimulaBase name="shoot">
+				<SimulaTable name_column1="time" name_column2="leafAreaExpantionRate" unit_column1="day" unit_column2="cm2/day">0. 0. 2. 0. 2.38 2.32 2.77 3.24 3.15 3.93 3.54 4.41 3.92 4.72 4.3 4.87 4.69 4.89 5.07 4.81 5.45 4.64 5.84 4.41 6.22 4.14 6.61 3.84 6.99 3.55 7.37 3.27 7.76 3.02 8.14 2.83 8.53 2.71 8.91 2.66 9.29 2.71 9.68 2.88 10.06 3.16 10.44 3.58 10.83 4.15 11.21 4.87 11.6 5.76 11.98 6.82 12.36 8.07 12.75 9.5 13.13 11.13 13.52 12.96 13.9 14.99 14.28 17.23 14.67 19.68 15.05 22.35 15.43 25.22 15.82 28.32 16.2 31.62 16.59 35.14 16.97 38.87 17.35 42.81 17.74 46.95 18.12 51.29 18.51 55.83 18.89 60.55 19.27 65.45 19.66 70.53 20.04 75.76 20.42 81.16 20.81 86.69 21.19 92.36 21.58 98.15 21.96 104.05 22.34 110.04 22.73 116.11 23.11 122.24 23.49 128.42 23.88 134.63 24.26 140.86 24.65 147.08 25.03 153.28 25.41 159.42 25.8 165.51 26.18 171.5 26.57 177.39 26.95 183.14 27.33 188.73 27.72 194.13 28.1 199.33 28.48 204.29 28.87 208.98 29.25 213.38 29.64 217.45 30.02 221.18 30.4 224.52 30.79 227.44 31.17 229.92 31.56 231.91 31.94 233.39 33.09 234.36 50 234.36  60 234.36 80 0</SimulaTable>
+				<SimulaConstant name="C4Photosynthesis" type="bool">1</SimulaConstant>
+				<SimulaTable name_column1="collarPotential" unit_column1="hPa" name_column2="waterStressResponseCurve" unit_column2="noUnit" garbageCollectionOff="true">10000 1 -3000 1 -8000 0.4 -12000 0 -999999999999 0</SimulaTable>
+				<SimulaConstant name="residualConductance" prettyName="residual Conductance" type="double" unit="mol/m2/s">0.017</SimulaConstant>
+				<SimulaConstant name="BBSlope" prettyName="Ball Berry Slope" type="double" unit="#">4.53</SimulaConstant>
+				<SimulaConstant name="RubiscoCO2MichaelisConstantAt25C" unit="umol/mol">485</SimulaConstant>
+				<SimulaConstant name="RubiscoCO2MichaelisActivationEnergy" unit="J/mol">35600</SimulaConstant>
+				<SimulaConstant name="RubiscoO2MichaelisConstantAt25C" unit="mmol/mol">146</SimulaConstant>
+				<SimulaConstant name="RubiscoO2MichaelisActivationEnergy" unit="J/mol">15100</SimulaConstant>
+				<SimulaConstant name="MichaelisPEPAt25C" unit="umol/mol">40</SimulaConstant>
+				<SimulaConstant name="MichaelisPEPActivationEnergy" unit="J/mol">68100</SimulaConstant>
+				<SimulaConstant name="dayRespirationAt25C" unit="umol/m2/s">1.95</SimulaConstant>
+				<SimulaConstant name="dayRespirationActivationEnergy" unit="J/mol">41850</SimulaConstant>
+				<SimulaConstant name="maxCarboxylationEfficiencyAt25C" unit="umol/m2/s">49</SimulaConstant>
+				<SimulaConstant name="carboxylationActivationEnergy" unit="J/mol">67294</SimulaConstant>
+				<SimulaConstant name="carboxylationDeactivationEnergy" unit="J/mol">144568</SimulaConstant>
+				<SimulaConstant name="carboxylationEntropyTerm" unit="J/K/mol">472</SimulaConstant>
+				<SimulaConstant name="maximumElectronTransportRateAt25C" unit="umol/m2/s">299</SimulaConstant>
+				<SimulaConstant name="maximumElectronTransportRateActivationEnergy" unit="J/mol">77900</SimulaConstant>
+				<SimulaConstant name="maximumElectronTransportRateDeactivationEnergy" unit="J/mol">191929</SimulaConstant>
+				<SimulaConstant name="maximumElectronTransportRateEntropyTerm" unit="J/K/mol">627</SimulaConstant>
+				<SimulaConstant name="maxPEPCarboxylationAt25C" unit="umol/m2/s">125</SimulaConstant>
+				<SimulaConstant name="PEPCarboxylationActivationEnergy" unit="J/mol">70372</SimulaConstant>
+				<SimulaConstant name="PEPCarboxylationDeactivationEnergy" unit="J/mol">117910</SimulaConstant>
+				<SimulaConstant name="PEPCarboxylationEntropyTerm" unit="J/K/mol">376</SimulaConstant>
+				<SimulaConstant name="PEPRegeneration" unit="umol/m2/s">80</SimulaConstant>
+				<SimulaConstant name="bundleSheathConductanceAt25C" unit="mol/m2/s">0.00287</SimulaConstant>
+				<SimulaConstant name="bundleSheathConductanceActivationEnergy" unit="J/mol">116700</SimulaConstant>
+				<SimulaConstant name="bundleSheathConductanceDeactivationEnergy" unit="J/mol">264600</SimulaConstant>
+				<SimulaConstant name="bundleSheathConductanceEntropyTerm" unit="J/K/mol">860</SimulaConstant>
+				<SimulaConstant name="CO2CompensationPointWithoutDayRespirationAt25C" unit="umol/mol">38.6</SimulaConstant>
+				<SimulaConstant name="CO2CompensationPointActivationEnergy" unit="J/mol">23400</SimulaConstant>
+				<SimulaConstant name="leafAbsorptance">0.85</SimulaConstant>
+				<SimulaConstant name="leafInfraredAbsorptance">0.96</SimulaConstant>
+				<SimulaConstant name="spectralQuality">0.15</SimulaConstant>
+				<SimulaConstant name="irradianceCurvatureFactor">0.7</SimulaConstant>
+				<SimulaConstant name="electronTransportPartitioningFactor">0.4</SimulaConstant>
+				<SimulaConstant name="fractionOfPSIIActivityInBundleSheath">0.1</SimulaConstant>
+				<SimulaConstant name="dayRespirationMesophyllFraction">0.5</SimulaConstant>
+				<SimulaConstant name="rubiscoSpecificityAt25C">2862</SimulaConstant>
+				<SimulaConstant name="rubiscoSpecificityActivationEnergy" unit="J/mol">27400</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="potentialCropHeightGrowthSpeed" unit_column2="cm/day" garbageCollectionOff="true">0 0 3 0 5 2 10 2 12 4 600 4</SimulaTable>
+				<SimulaConstant name="leafWidth" unit="m">0.09</SimulaConstant>
+				<SimulaConstant name="extinctionCoefficient" unit="noUnit">0.45</SimulaConstant>
+				<SimulaTable name_column1="time" name_column2="specificLeafArea" unit_column1="day" unit_column2="g/cm2" garbageCollectionOff="true">0 0.0015 24 0.0026 50 0.0032 100 0.0032</SimulaTable>
+				<SimulaConstant name="lightUseEfficiency" unit="g/J">1.74E-6</SimulaConstant>
+				<SimulaConstant name="areaPerPlant" unit="cm2">1250</SimulaConstant>
+				<SimulaConstant name="increaseInRGRDuringRecovery">0.1</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="defaults" />
+			<SimulaBase name="defaultsMajorAxis" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaults</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="hypocotyl" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">2</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="braceroots">
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">30.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">4.0</SimulaConstant>
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">7</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">7</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="braceroots2">
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">36.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">7.0</SimulaConstant>
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">10</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">10</SimulaConstant>
+						<SimulaConstant name="branchingFrequency" unit="cm">5.0</SimulaConstant>
+						<SimulaConstant name="branchingDelay" unit="day">14.	</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="braceroots3">
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">45.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">12.0</SimulaConstant>
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">12</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">12</SimulaConstant>
+						<SimulaConstant name="branchingFrequency" unit="cm">5.0</SimulaConstant>
+						<SimulaConstant name="branchingDelay" unit="day">14.	</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="nodalroots">
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">9.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">1</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="nodalroots2">
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">16.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">1.5</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="nodalroots3">
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">2</SimulaConstant>
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">20.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">2</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="nodalroots4">
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">3</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">3</SimulaConstant>
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">23.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">3</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="nodalroots5">
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">4</SimulaConstant>
+						<SimulaConstant name="maxNumberOfBranches" type="integer" unit="#">4</SimulaConstant>
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">27.</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">4</SimulaConstant>
+						<SimulaConstant name="allometricScaling" type="bool">true</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="primaryRoot" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">1</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.45" minimum="0.25" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+					<SimulaBase name="seminal">
+						<SimulaConstant name="branchingTimeOffset" type="time" unit="day">1</SimulaConstant>
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">0.</SimulaConstant>
+						<SimulaConstant name="numberOfBranches/whorl" type="integer" unit="#">3</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="braceroots" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">3</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateralOfCrownRoots">
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">12.</SimulaConstant>
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="braceroots2" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">4</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateralOfCrownRoots">
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">15.</SimulaConstant>
+						<SimulaConstant type="integer" name="numberOfBranches/whorl" unit="#">1</SimulaConstant>
+						<SimulaStochastic distribution="uniform" maximum="0.4" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="braceroots3" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">4</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateralOfCrownRoots">
+						<SimulaConstant name="branchingSpatialOffset" unit="cm">15.</SimulaConstant>
+						<SimulaConstant type="integer" name="numberOfBranches/whorl" unit="#">1</SimulaConstant>
+						<SimulaStochastic distribution="uniform" maximum="0.4" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="seminal" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">5</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.25" minimum="0.05" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="nodalroots" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">6</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="nodalroots2" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">7</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="nodalroots3" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">8</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="nodalroots4" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">9</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="nodalroots5" objectGenerator="copyDefaults">
+				<SimulaConstant name="copyDefaultsFrom" type="string">../defaultsMajorAxis</SimulaConstant>
+				<SimulaConstant name="rootClassID" type="integer">9</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.3" minimum="0.1" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">10.93</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="lateralOfCrownRoots" objectGenerator="copyDefaults">
+				<SimulaConstant name="rootClassID" type="integer">10</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="lateral">
+						<SimulaStochastic distribution="uniform" maximum="0.35" minimum="0.25" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">5</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="lateral" objectGenerator="copyDefaults">
+				<SimulaConstant name="rootClassID" type="integer">11</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="finelateral">
+						<SimulaStochastic distribution="uniform" maximum="0.35" minimum="0.15" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">4</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="finelateral" objectGenerator="copyDefaults">
+				<SimulaConstant name="rootClassID" type="integer">12</SimulaConstant>
+				<SimulaBase name="branchList">
+					<SimulaBase name="finelateral2">
+						<SimulaStochastic distribution="uniform" maximum="0.6" minimum="0.4" name="branchingFrequency" unit="cm" />
+						<SimulaConstant name="lengthRootTip" unit="cm">1.5</SimulaConstant>
+						<SimulaConstant name="allowBranchesToFormAboveGround" type="bool">false</SimulaConstant>
+					</SimulaBase>
+				</SimulaBase>
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="finelateral2" objectGenerator="copyDefaults">
+				<SimulaConstant name="rootClassID" type="integer">13</SimulaConstant>
+				<SimulaBase name="branchList" />
+				<SimulaConstant name="density" unit="g/cm3">0.094</SimulaConstant>
+			</SimulaBase>
+			<SimulaDirective path="hypocotyl">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 1 1 2 2 2 3 2 5 0 1000 0</SimulaTable>
+				<SimulaConstant name="diameter" unit="cm">0.15</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 4.5 28 4.5 38 0. 1000 0.</SimulaTable>
+				<SimulaConstant name="diameter" unit="cm">0.065</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 5 1 10 4.5 17 4.5 22 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="uniform" maximum="1.0" minimum="0.7" name="longitudinalGrowthRateMultiplier" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.4 8 0.4 15 0.15 24 0.1 100 0.1 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 5 1 10 4.5 17 4.5 22 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="uniform" maximum="1." minimum="0.7" name="longitudinalGrowthRateMultiplier" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.5 9 0.5 16 0.2 24 0.1 100 0.1 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 5 1 10 4.5 17 4.5 22 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="uniform" maximum="1." minimum="0.7" name="longitudinalGrowthRateMultiplier" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.5 9 0.5 16 0.2 24 0.1 100 0.1 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 0.5 2 4.5 28 4.5 38 0.0 100 0</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaConstant name="diameter" unit="cm">0.085</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 1 3 4.5 28 4.5 38 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.12 10 0.09 100 0.09 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 1 3 4.5 28 4.5 38 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.14 10 0.09 100 0.09 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 1 3 4.5 28 4.5 38 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.16 10 0.10 100 0.10 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 1 3 4.5 28 4.5 38 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.20 10 0.11 100 0.11 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 1 3 4.5 28 4.5 38 0 1000 0.</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.2" mean="1" minimum="0.6" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="diameter" type="double" unit_column1="day" unit_column2="cm">0 0.24 10 0.12 100 0.12 
+					<SimulaConstant name="multipler">1</SimulaConstant>
+				</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.1 1 0.5 3 1.2 12 1.2 18 0.0 1000 0.0</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1" mean="0.4" minimum="0.1" name="longitudinalGrowthRateMultiplier" stdev="0.3" unit="cm" />
+				<SimulaConstant name="diameter" unit="cm">0.07</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 0.2 3 0.4 7 1.0 11 0.0 1000 0.0</SimulaTable>
+				<SimulaStochastic distribution="lognormal" maximum="2." mean="0.7" minimum="0.1" name="longitudinalGrowthRateMultiplier" stdev="0.3" unit="cm" />
+				<SimulaConstant name="diameter" unit="cm">0.04</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.01 1 0.35 6 0.0 1000 0.0</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.5" mean="1" minimum="0.5" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaConstant name="diameter" unit="cm">0.025</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since creation" name_column2="growthRate" unit_column1="day" unit_column2="cm/day">0 0.001 1 0.28 4 0.0 1000 0.0</SimulaTable>
+				<SimulaStochastic distribution="normal" maximum="1.5" mean="1" minimum="0.5" name="longitudinalGrowthRateMultiplier" stdev="0.1" unit="cm" />
+				<SimulaConstant name="diameter" unit="cm">0.015</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="defaults">
+				<SimulaConstant name="soilImpedanceFor50PercentGrowthSlowdown" unit="kPa" type="double">1500</SimulaConstant>
+				<SimulaConstant name="scalingExponentForRootDiameterIncreaseFromImpedance" type="double">0.2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="defaultsMajorAxis">
+				<SimulaConstant name="soilImpedanceFor50PercentGrowthSlowdown" unit="kPa" type="double">2000</SimulaConstant>
+				<SimulaConstant name="scalingExponentForRootDiameterIncreaseFromImpedance" type="double">0.4</SimulaConstant>
+			</SimulaDirective>
+			<SimulaBase name="resources">
+				<SimulaConstant name="carbonCostOfNitrateUptake" unit="g/uMol">0.00001392</SimulaConstant>
+				<SimulaConstant name="maxCarbonAllocation2Shoot" unit="100%">0.99</SimulaConstant>
+				<SimulaConstant name="seedMass" unit="g">0.15</SimulaConstant>
+				<SimulaConstant name="seedReserveDuration" unit="day" type="time">10</SimulaConstant>
+				<SimulaTable name_column1="time" unit_column1="day" name_column2="reserveAllocationRate" unit_column2="%/day" garbageCollectionOff="true">0.0 0.01 1.0 0.02 2.0 0.04 3.0 0.04 10.0 0.2 11 0.2 1000 0.2</SimulaTable>
+				<SimulaTable name_column1="time" unit_column1="day" name_column2="carbonAllocation2RootsFactor" unit_column2="100%" garbageCollectionOff="true">0 1 1 1 6 0.4 20 0.20 40 0.17 800 0.17</SimulaTable>
+				<SimulaTable name_column1="time" unit_column1="day" name_column2="carbonAllocation2LeafsFactor" unit_column2="100%" garbageCollectionOff="true">0 1.0 10 0.7 20 0.45 33 0.42 40 0.4 600 0.4</SimulaTable>
+				<SimulaConstant name="CtoDryWeightRatio" unit="100%">0.45</SimulaConstant>
+			</SimulaBase>
+			<SimulaBase name="stressImpactFactors">
+				<SimulaBase name="impactOn:photosynthesis">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0.5 1 0 0.5</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0.4 0.5 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:stomatalConductance">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0 0</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:leafAreaExpantionRate">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0.2 0.5 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0.3 0.1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0.9 1 0.3 0 0 0</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:cropHeightGrowthSpeed">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0.2 0.5 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0.3 0.1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0.9 1 0.3 0 0 0</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:rootPotentialLongitudinalGrowth">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0.1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0.5 1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0.5 1 0 0</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:numberOfWhorlRoots">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:branchingFrequencyMultiplier">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0 1</SimulaTable>
+				</SimulaBase>
+				<SimulaBase name="impactOn:gravitropismMultiplier">
+					<SimulaTable name_column2="impactBy:phosphorus" name_column1="phosphorus stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:potassium" name_column1="potassium stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:nitrate" name_column1="nitrate stress factor" garbageCollectionOff="true">1 0 0.5 1 0 1</SimulaTable>
+					<SimulaTable name_column2="impactBy:water" name_column1="water stress factor" garbageCollectionOff="true">1 1 0.5 1 0 2</SimulaTable>
+				</SimulaBase>
+			</SimulaBase>
+			<SimulaDirective path="/simulationControls">
+				<SimulaBase name="aerenchyma">
+					<SimulaConstant name="remobilizeP" type="bool">true</SimulaConstant>
+					<SimulaConstant name="reduceRespiration" type="bool">true</SimulaConstant>
+					<SimulaConstant name="includePhotosynthesisEffects" type="bool">true</SimulaConstant>
+				</SimulaBase>
+			</SimulaDirective>
+			<SimulaDirective path="shoot">
+				<SimulaConstant name="aerenchymaPhotosynthesisMitigation" unit="100%">0.5</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 100 0.0 
+					<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="aerenchymaFormation" unit_column2="100%" garbageCollectionOff="true">0 0.0 3 0.0 5 0.05 10 0.125 20 0.2 1000 0.2<SimulaConstant name="multiplier">1</SimulaConstant>
+				</SimulaTable>
+				<SimulaTable name_column1="aerenchymaFormation" unit_column1="100%" name_column2="reductionInRespirationDueToAerenchyma" unit_column2="100%" garbageCollectionOff="true">0.0 0.0 0.30 0.70 0.60 1.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="defaults">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeRespiration" unit_column2="g/g/day">0 0.09 2 0.04 6 0.04 1000 0.04</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.0 100 0.0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="defaults">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.000005 100 0.000005</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.000005 100 0.000004</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.000005 100 0.000003</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.000005 100 0.000001</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="relativeCarbonCostOfExudation" unit_column2="g/cm/day">0 0.000005 100 0.000001</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairLength" unit_column2="cm">0 0 1 0 2 0.028 2000 0.028</SimulaTable>
+				<SimulaConstant name="rootHairDiameter" unit="cm">5e-4</SimulaConstant>
+				<SimulaTable name_column1="time since creation" unit_column1="day" name_column2="rootHairDensity" unit_column2="#/cm2">0 2000 1 2000 2 2000 10 2000 30 0 2000 0</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaConstant name="numberOfXylemPoles" type="integer">61</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.3" maximum="0.3" />
+				<SimulaConstant name="gravitropism.v2" type="coordinate">0 1. 0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaConstant name="branchingAngle" unit="degrees">0</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">8</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.05" maximum="0.05" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.015" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaConstant name="branchingAngle" unit="degrees">140</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">40</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">4</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.03" maximum="0.03" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaConstant name="branchingAngle" unit="degrees">140</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">48</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">3</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.03" maximum="0.03" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaConstant name="branchingAngle" unit="degrees">130</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">48</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">3</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.03" maximum="0.03" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaConstant name="branchingAngle" unit="degrees">90</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">6</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">1</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.04" maximum="0.04" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.035" maximum="-0.025" />
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaConstant name="branchingAngle" unit="degrees">160</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">10</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">3</SimulaConstant>
+				<SimulaConstant name="topologyOffset" type="integer">0</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.02" maximum="0.02" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaConstant name="branchingAngle" unit="degrees">150</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">18</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">0</SimulaConstant>
+				<SimulaConstant name="topologyOffset" type="integer">0</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.02" maximum="0.02" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaConstant name="branchingAngle" unit="degrees">140</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">24</SimulaConstant>
+				<SimulaConstant name="regularTopology" type="integer">0</SimulaConstant>
+				<SimulaConstant name="topologyOffset" type="integer">0</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.02" maximum="0.02" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaConstant name="branchingAngle" unit="degrees">130</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">32</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.02" maximum="0.02" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaConstant name="branchingAngle" unit="degrees">130</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">32</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.02" maximum="0.02" />
+				<SimulaStochastic name="gravitropism.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.01" maximum="-0.005" />
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaConstant name="branchingAngle" unit="degrees">90</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">4</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.05" maximum="0.05" />
+				<SimulaConstant name="gravitropism.v2" type="coordinate">0 0 0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaConstant name="branchingAngle" unit="degrees">90</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">4</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.1" maximum="0.1" />
+				<SimulaConstant name="gravitropism.v2" type="coordinate">0 0 0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaConstant name="branchingAngle" unit="degrees">62.83</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">4</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.05" maximum="0.05" />
+				<SimulaConstant name="gravitropism.v2" type="coordinate">0 0 0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaConstant name="branchingAngle" unit="degrees">62.83</SimulaConstant>
+				<SimulaConstant name="numberOfXylemPoles" type="integer">4</SimulaConstant>
+				<SimulaStochastic name="soilImpedence.v2" unit="cm" type="coordinate" distribution="uniform" minimum="-0.05" maximum="0.05" />
+				<SimulaConstant name="gravitropism.v2" type="coordinate">0 0 0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaConstant name="topBoundary" type="bool">0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="defaults">
+				<SimulaConstant name="topBoundary" type="bool">1</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="defaults">
+				<SimulaConstant name="bottomBoundary" type="bool">1</SimulaConstant>
+				<SimulaConstant name="bounceOfTheSide" type="bool">1</SimulaConstant>
+				<SimulaConstant name="cannotgrowup" type="bool">0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaConstant name="bottomBoundary" type="bool">0</SimulaConstant>
+				<SimulaConstant name="bounceOfTheSide" type="bool">1</SimulaConstant>
+				<SimulaConstant name="cannotgrowup" type="bool">0</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="hypocotyl">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 600 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 10 4.32 100 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 15 2.16e-4 20 1.16e-4 30 0.5e-4 40 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 9 0.432 11 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 12 0.432 14 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 12 0.432 14 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 12 0.432 14 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 10.5 0.432 12.5 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 11 0.432 13 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 11 0.432 13 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 11 0.432 13 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 11 0.432 13 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 2.16e-4 10 2.16e-4 20 2.5e-4 30 2.16e-4 40 1e-4 60 0 1000 0</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0 11 0.432 13 4.32 1000 4.32</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">2</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 4.16e-4 600 4.16e-4</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0.0 10 17.28e-6 12.5 6.48e-4 20 6.48e-4 25 17.28e-4 1000 17.28e-4</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">1</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 4.16e-4 600 4.16e-4</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0.0 10 17.28e-6 12.5 6.48e-4 20 6.48e-4 25 17.28e-4 1000 17.28e-4</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">1</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 4.16e-4 600 4.16e-4</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0.0 10 17.28e-7 12.5 6.48e-5 20 6.48e-5 25 17.28e-5 1000 17.28e-5</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">1</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="radialHydraulicConductivity" unit_column1="day" unit_column2="cm/day/hPa">0 0 1 4.16e-4 600 4.16e-4</SimulaTable>
+				<SimulaTable garbageCollectionOff="true" name_column1="time since planting" name_column2="lateralHydraulicConductivity" unit_column1="day" unit_column2="cm4/day/hPa">0 0.0 10 17.28e-8 12.5 6.48e-6 20 6.48e-6 25 17.28e-6 1000 17.28e-6</SimulaTable>
+				<SimulaConstant name="lengthRootTipWithoutXylemVessels" unit="cm">1</SimulaConstant>
+			</SimulaDirective>
+			<SimulaDirective path="primaryRoot">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="braceroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="seminal">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots2">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots3">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots4">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="nodalroots5">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateralOfCrownRoots">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="lateral">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+			<SimulaDirective path="finelateral2">
+				<SimulaTable name_column1="time since creation" unit_column1="cm" name_column2="lengthMultiplier2DiameterMultiplier" unit_column2="cm">0. 0.25 1. 1. 2. 1.5 3. 1.8 4. 2. 100. 2. 1000. 2.</SimulaTable>
+			</SimulaDirective>
+		</SimulaBase>
+	</SimulaBase>
+</SimulationModel>

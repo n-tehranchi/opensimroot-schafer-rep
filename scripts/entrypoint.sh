@@ -42,4 +42,34 @@ OpenSimRoot "${XML_PATH}" || true
 
 echo "Simulation completed. FATAL ERROR messages from this model version are expected warnings."
 echo "Results saved to: ${OUTPUT_PATH}"
+
+# ---------------------------------------------------------------------------
+# Push output files to GitHub
+# ---------------------------------------------------------------------------
+if [[ -z "${GITHUB_TOKEN:-}" ]]; then
+    echo "WARNING: GITHUB_TOKEN not set — skipping push to GitHub."
+    exit 0
+fi
+
+REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/n-tehranchi/opensimroot-drought-pipeline.git"
+BASENAME="$(basename "${INPUT_FILE}" .xml)"
+CLONE_DIR="/tmp/repo-push"
+
+echo "Pushing results to GitHub (results/${BASENAME}/) ..."
+
+git clone --depth 1 "${REPO_URL}" "${CLONE_DIR}"
+cd "${CLONE_DIR}"
+
+git config user.email "pipeline@opensimroot"
+git config user.name "OpenSimRoot Pipeline"
+
+mkdir -p "results/${BASENAME}"
+cp -r "${OUTPUT_PATH}/." "results/${BASENAME}/"
+
+git add "results/${BASENAME}"
+git commit -m "Add simulation results for ${BASENAME}"
+git push origin main
+
+echo "Results pushed to GitHub: results/${BASENAME}/"
+rm -rf "${CLONE_DIR}"
 exit 0

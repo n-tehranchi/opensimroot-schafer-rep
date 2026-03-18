@@ -35,6 +35,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libstdc++6 \
     libpython3.10 \
+    git \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the compiled binary
@@ -43,9 +45,10 @@ COPY --from=builder /build/OpenSimRoot/release_build/OpenSimRoot /usr/local/bin/
 # Copy the bundled InputFiles (templates, environments, plant parameters)
 COPY --from=builder /build/OpenSimRoot/OpenSimRoot/InputFiles /opt/opensimroot/InputFiles
 
-# Copy entrypoint
+# Copy scripts
 COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY scripts/run-all-sims.sh /usr/local/bin/run-all-sims.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/run-all-sims.sh
 
 # Bundle input XML files into the image
 COPY inputs/ /opt/inputs/

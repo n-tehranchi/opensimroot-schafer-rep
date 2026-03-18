@@ -21,6 +21,12 @@ OUTPUT_PATH="${OUTPUT_PATH:-/home/jovyan/work/outputs}"
 NAMESPACE="${RUNAI_NAMESPACE:-runai-busch-lab}"
 DRY_RUN="${DRY_RUN:-false}"
 
+# --- Validate GITHUB_TOKEN ---
+if [[ -z "${GITHUB_TOKEN:-}" ]]; then
+    echo "ERROR: GITHUB_TOKEN env var is not set. Export it before running this script."
+    exit 1
+fi
+
 NUM_ENVS=6          # 0..5
 NUM_PHENOTYPES=16   # 0..15
 NUM_REPLICATES=5    # 0..4
@@ -71,6 +77,7 @@ for env in $(seq 0 $(( NUM_ENVS - 1 ))); do
                 --cpu-memory-request "${MEMORY}"
                 -e INPUT_FILE="${XML_FILE}"
                 -e OUTPUT_PATH="${OUTPUT_PATH}"
+                -e GITHUB_TOKEN="${GITHUB_TOKEN}"
             )
 
             if [[ "${GPU}" -gt 0 ]]; then

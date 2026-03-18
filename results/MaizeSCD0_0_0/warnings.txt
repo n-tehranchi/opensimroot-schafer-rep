@@ -1,0 +1,20 @@
+Simulation took (hours:minutes:seconds): 0:0:1
+THE MODEL PUT OUT WARNINGS:
+ETBaseClass: Using /environment/atmosphere/netRadiation. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	1x
+ETBaseClass: Using /environment/atmosphere/netRadiationSoil. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	3x
+FATAL ERROR: LeafTemperature: This class needs checking, especially the unit conversion and if the use and naming of irradiation is consistent with other classes	1x
+FieldPlanting: setting maxCorner to 25	0	12.5	1x
+FieldPlanting: setting minCorner to -25	-150	-12.5	1x
+MeanLeafAreaIndex: Assuming all plants are planted at t = 0. If this is not the case, add 'plantsPlantedAtDifferentTimes' under 'environment'.	3x
+OpenSimRoot was built on Mar 18 2026 from git version 0980e2ff9f	1x
+PlantCarbonBalance: balance error at +0.00 days: error (%) tot=+100.0000 root=+0.0000 alloc=+100.0000 for maize_1_1	1x
+PlantCarbonBalance: carbonAvailableForGrowth!=plantCarbonIncome-plantRepiration-exudates-storage for maize_1_1	1x
+ReadXMLfile: Setting default maximum time step to 0.1	1x
+RootDataPoints:: "/simulationControls/integrationParameters/maxTimeBetweenRootNodes" not set, but note that the default is 100 days for backward compatibility - meaning that nodes are created mostly based on distance. Setting this with a much smaller time will increase precision, but also the number of nodes if you have slow growing roots.	1x
+RootSegmentRespirationRate: Reduction due to RCA simulated.	1x
+StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/shadedStomatalResistancenot found, using default value of 100 m/s	1x
+StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/stomatalResistancenot found, using default value of 100 m/s	1x
+StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/sunlitStomatalResistancenot found, using default value of 100 m/s	1x
+SumCarbonCosts: Did not find rootCarbonCostOfBiologicalNitrogenFixation. And thus not including it in the costs.	1x
+SumCarbonCosts: Did not find rootCarbonCostOfNutrientUptake. And thus not including it in the costs.	1x
+vanGenuchten: Setting minimum conductivity, which can prevent the water model from crashing.	1x

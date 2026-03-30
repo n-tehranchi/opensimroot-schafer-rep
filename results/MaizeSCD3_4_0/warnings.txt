@@ -1,20 +1,720 @@
-Simulation took (hours:minutes:seconds): 0:0:0
+Simulation took (hours:minutes:seconds): 11:16:14
 THE MODEL PUT OUT WARNINGS:
-ETBaseClass: Using /environment/atmosphere/netRadiation. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	1x
-ETBaseClass: Using /environment/atmosphere/netRadiationSoil. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	3x
-FATAL ERROR: LeafTemperature: This class needs checking, especially the unit conversion and if the use and naming of irradiation is consistent with other classes	1x
+At 42 days mem usage was 3245 mB.	1x
+CarbonAvailableForGrowth:  negative values: carbon production lower than compulsory cost of respiration/exudates? Setting growth to 0, this will cause balance errors	276x
+Doussan: exponentForStomatalClosure not found, defaulting to 2	1x
+Doussan: minimumWaterPotentialAtTheCollar not found, defaulting to -15000hPa.	1x
+Doussan: waterPotentialAtTheCollarAtOnsetOfStomatalClosing not found, defaulting to -4000hPa.	1x
 FieldPlanting: setting maxCorner to 25	0	12.5	1x
 FieldPlanting: setting minCorner to -25	-150	-12.5	1x
 MeanLeafAreaIndex: Assuming all plants are planted at t = 0. If this is not the case, add 'plantsPlantedAtDifferentTimes' under 'environment'.	3x
-OpenSimRoot was built on Mar 19 2026 from git version 0980e2ff9f	1x
-PlantCarbonBalance: balance error at +0.00 days: error (%) tot=+100.0000 root=+0.0000 alloc=+100.0000 for maize_1_1	1x
-PlantCarbonBalance: carbonAvailableForGrowth!=plantCarbonIncome-plantRepiration-exudates-storage for maize_1_1	1x
+OpenSimRoot was built on Mar 29 2026 from git version aaa2c0aebe	1x
+PlantCarbonBalance: balance error at +16.70 days: error (%) tot=-0.5898 root=-0.4622 alloc=+0.0025 shoot=-0.1301 for maize_1_1	1x
+PlantCarbonBalance: balance error at +16.80 days: error (%) tot=-0.5664 root=-0.5213 alloc=+0.0024 shoot=-0.0475 for maize_1_1	1x
+PlantCarbonBalance: balance error at +16.90 days: error (%) tot=-0.7667 root=-0.7215 alloc=+0.0024 shoot=-0.0476 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.00 days: error (%) tot=-0.8382 root=-0.7930 alloc=+0.0024 shoot=-0.0477 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.10 days: error (%) tot=-0.8380 root=-0.7927 alloc=+0.0024 shoot=-0.0477 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.20 days: error (%) tot=-0.8386 root=-0.7932 alloc=+0.0024 shoot=-0.0478 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.30 days: error (%) tot=-0.8200 root=-0.7757 alloc=+0.0024 shoot=-0.0467 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.40 days: error (%) tot=-0.7881 root=-0.7454 alloc=+0.0023 shoot=-0.0450 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.50 days: error (%) tot=-1.0519 root=-0.8942 alloc=+0.0022 shoot=-0.1599 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.60 days: error (%) tot=-0.9684 root=-0.8555 alloc=+0.0021 shoot=-0.1150 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.70 days: error (%) tot=-1.2081 root=-1.0080 alloc=+0.0020 shoot=-0.2022 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.80 days: error (%) tot=-1.1513 root=-1.0338 alloc=+0.0020 shoot=-0.1194 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.90 days: error (%) tot=-1.2338 root=-1.1605 alloc=+0.0020 shoot=-0.0753 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.00 days: error (%) tot=-1.3268 root=-1.2535 alloc=+0.0020 shoot=-0.0753 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.10 days: error (%) tot=-1.3598 root=-1.2865 alloc=+0.0020 shoot=-0.0753 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.20 days: error (%) tot=-1.3568 root=-1.2834 alloc=+0.0020 shoot=-0.0754 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.30 days: error (%) tot=-1.3219 root=-1.2502 alloc=+0.0019 shoot=-0.0736 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.40 days: error (%) tot=-1.2822 root=-1.2127 alloc=+0.0019 shoot=-0.0714 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.50 days: error (%) tot=-1.7346 root=-1.4716 alloc=+0.0018 shoot=-0.2648 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.60 days: error (%) tot=-1.6787 root=-1.4971 alloc=+0.0018 shoot=-0.1834 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.70 days: error (%) tot=-2.7238 root=-2.2220 alloc=+0.0017 shoot=-0.5035 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.80 days: error (%) tot=-2.8400 root=-2.4190 alloc=+0.0017 shoot=-0.4227 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.90 days: error (%) tot=-3.2246 root=-2.8284 alloc=+0.0017 shoot=-0.3979 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.00 days: error (%) tot=-3.3942 root=-2.9980 alloc=+0.0017 shoot=-0.3979 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.10 days: error (%) tot=-3.4034 root=-3.0072 alloc=+0.0017 shoot=-0.3979 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.20 days: error (%) tot=-3.4035 root=-3.0074 alloc=+0.0017 shoot=-0.3978 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.30 days: error (%) tot=-3.3210 root=-2.9346 alloc=+0.0016 shoot=-0.3881 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.40 days: error (%) tot=-3.2105 root=-2.8337 alloc=-0.0016 shoot=-0.3752 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.50 days: error (%) tot=-3.1650 root=-2.8118 alloc=+0.0162 shoot=-0.3693 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.60 days: error (%) tot=-3.0354 root=-2.7134 alloc=+0.0325 shoot=-0.3545 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.70 days: error (%) tot=-2.8714 root=-2.5673 alloc=+0.0315 shoot=-0.3357 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.80 days: error (%) tot=-3.2703 root=-2.7932 alloc=+0.0306 shoot=-0.5077 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.90 days: error (%) tot=-3.2901 root=-2.7622 alloc=+0.0306 shoot=-0.5586 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.00 days: error (%) tot=-3.1989 root=-2.7285 alloc=+0.0306 shoot=-0.5010 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.10 days: error (%) tot=-3.5401 root=-3.0697 alloc=+0.0306 shoot=-0.5011 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.20 days: error (%) tot=-3.6537 root=-3.1832 alloc=+0.0306 shoot=-0.5011 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.30 days: error (%) tot=-3.6475 root=-3.1777 alloc=+0.0306 shoot=-0.5004 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.40 days: error (%) tot=-3.5826 root=-3.1203 alloc=+0.0457 shoot=-0.5079 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.50 days: error (%) tot=-3.3495 root=-2.9348 alloc=+0.0435 shoot=-0.4583 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.60 days: error (%) tot=-4.0066 root=-3.2985 alloc=+0.0225 shoot=-0.7306 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.70 days: error (%) tot=-3.9498 root=-3.3335 alloc=+0.0353 shoot=-0.6516 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.80 days: error (%) tot=-3.7722 root=-3.2203 alloc=+0.0298 shoot=-0.5816 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.90 days: error (%) tot=-4.3604 root=-3.6988 alloc=+0.0297 shoot=-0.6914 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.00 days: error (%) tot=-4.4515 root=-3.8455 alloc=+0.0298 shoot=-0.6357 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.10 days: error (%) tot=-4.6112 root=-4.0052 alloc=+0.0298 shoot=-0.6357 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.20 days: error (%) tot=-4.6670 root=-4.0611 alloc=+0.0298 shoot=-0.6357 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.30 days: error (%) tot=-4.6598 root=-4.0547 alloc=+0.0297 shoot=-0.6348 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.40 days: error (%) tot=-4.6782 root=-4.0695 alloc=+0.0463 shoot=-0.6550 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.50 days: error (%) tot=-4.3989 root=-3.8614 alloc=+0.0606 shoot=-0.5981 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.60 days: error (%) tot=-4.1818 root=-3.6777 alloc=+0.0611 shoot=-0.5653 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.70 days: error (%) tot=-4.3974 root=-3.7676 alloc=+0.0601 shoot=-0.6899 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.80 days: error (%) tot=-4.4580 root=-3.6610 alloc=-0.0014 shoot=-0.7955 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.90 days: error (%) tot=-4.3681 root=-3.6294 alloc=-0.0014 shoot=-0.7373 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.00 days: error (%) tot=-4.3334 root=-3.6514 alloc=-0.0014 shoot=-0.6806 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.10 days: error (%) tot=-4.5196 root=-3.8377 alloc=-0.0014 shoot=-0.6806 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.20 days: error (%) tot=-4.5699 root=-3.8880 alloc=-0.0014 shoot=-0.6805 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.30 days: error (%) tot=-4.5633 root=-3.8823 alloc=-0.0014 shoot=-0.6796 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.40 days: error (%) tot=-4.5590 root=-3.8772 alloc=+0.0153 shoot=-0.6971 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.50 days: error (%) tot=-4.3857 root=-3.7668 alloc=+0.0315 shoot=-0.6504 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.60 days: error (%) tot=-4.3191 root=-3.7303 alloc=+0.0472 shoot=-0.6360 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.70 days: error (%) tot=-4.1663 root=-3.6156 alloc=+0.0610 shoot=-0.6116 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.80 days: error (%) tot=-4.0624 root=-3.5246 alloc=+0.0587 shoot=-0.5964 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.90 days: error (%) tot=-4.3069 root=-3.6738 alloc=+0.0587 shoot=-0.6917 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.00 days: error (%) tot=-4.2830 root=-3.7069 alloc=+0.0587 shoot=-0.6347 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.10 days: error (%) tot=-4.4139 root=-3.8378 alloc=+0.0587 shoot=-0.6347 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.20 days: error (%) tot=-4.4607 root=-3.8847 alloc=+0.0587 shoot=-0.6347 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.30 days: error (%) tot=-4.4546 root=-3.8794 alloc=+0.0586 shoot=-0.6338 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.40 days: error (%) tot=-4.2848 root=-3.7486 alloc=+0.0733 shoot=-0.6096 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.50 days: error (%) tot=-4.0496 root=-3.5431 alloc=+0.0695 shoot=-0.5760 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.60 days: error (%) tot=-4.0968 root=-3.5424 alloc=+0.0825 shoot=-0.6369 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.70 days: error (%) tot=-3.8824 root=-3.4006 alloc=+0.0939 shoot=-0.5757 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.80 days: error (%) tot=-3.8875 root=-3.3953 alloc=+0.0918 shoot=-0.5840 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.90 days: error (%) tot=-3.8785 root=-3.3881 alloc=+0.0918 shoot=-0.5822 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.00 days: error (%) tot=-3.7930 root=-3.3604 alloc=+0.0918 shoot=-0.5244 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.10 days: error (%) tot=-3.8856 root=-3.4531 alloc=+0.0918 shoot=-0.5244 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.20 days: error (%) tot=-3.9204 root=-3.4879 alloc=+0.0918 shoot=-0.5243 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.30 days: error (%) tot=-3.9160 root=-3.4841 alloc=+0.0917 shoot=-0.5236 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.40 days: error (%) tot=-3.8517 root=-3.4445 alloc=+0.1077 shoot=-0.5149 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.50 days: error (%) tot=-3.7605 root=-3.3806 alloc=+0.1227 shoot=-0.5026 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.60 days: error (%) tot=-3.6864 root=-3.3316 alloc=+0.1378 shoot=-0.4926 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.70 days: error (%) tot=-3.5603 root=-3.2346 alloc=+0.1502 shoot=-0.4758 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.80 days: error (%) tot=-3.4793 root=-3.1589 alloc=+0.1445 shoot=-0.4650 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.90 days: error (%) tot=-3.7065 root=-3.2975 alloc=+0.1445 shoot=-0.5536 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.00 days: error (%) tot=-3.6686 root=-3.3247 alloc=+0.1445 shoot=-0.4885 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.10 days: error (%) tot=-3.7871 root=-3.4432 alloc=+0.1445 shoot=-0.4884 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.20 days: error (%) tot=-3.8312 root=-3.4873 alloc=+0.1445 shoot=-0.4884 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.30 days: error (%) tot=-3.9892 root=-3.5529 alloc=+0.1266 shoot=-0.5629 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.40 days: error (%) tot=-4.4565 root=-3.9253 alloc=+0.0109 shoot=-0.5421 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.50 days: error (%) tot=-4.6453 root=-3.9818 alloc=+0.0010 shoot=-0.6644 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.60 days: error (%) tot=-4.6742 root=-3.9114 alloc=-0.0224 shoot=-0.7404 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.70 days: error (%) tot=-4.6514 root=-3.7589 alloc=-0.2674 shoot=-0.6251 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.80 days: error (%) tot=-4.8075 root=-3.9612 alloc=-0.2563 shoot=-0.5900 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.90 days: error (%) tot=-4.9480 root=-4.0330 alloc=-0.2564 shoot=-0.6587 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.00 days: error (%) tot=-4.9040 root=-4.0232 alloc=-0.2564 shoot=-0.6243 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.10 days: error (%) tot=-4.9972 root=-4.1172 alloc=-0.2565 shoot=-0.6236 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.20 days: error (%) tot=-5.0294 root=-4.1481 alloc=-0.2565 shoot=-0.6248 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.30 days: error (%) tot=-6.0905 root=-4.1498 alloc=-1.0606 shoot=-0.8802 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.40 days: error (%) tot=-6.4632 root=-4.0484 alloc=-1.6220 shoot=-0.7928 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.50 days: error (%) tot=-6.1194 root=-3.9113 alloc=-1.3826 shoot=-0.8256 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.60 days: error (%) tot=-5.8864 root=-3.7859 alloc=-1.3273 shoot=-0.7733 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.70 days: error (%) tot=-5.8131 root=-3.8107 alloc=-1.2596 shoot=-0.7428 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.80 days: error (%) tot=-5.7394 root=-3.7817 alloc=-1.2314 shoot=-0.7264 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.90 days: error (%) tot=-5.8732 root=-3.8633 alloc=-1.2314 shoot=-0.7785 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.00 days: error (%) tot=-5.8336 root=-3.8760 alloc=-1.2314 shoot=-0.7262 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.10 days: error (%) tot=-5.8991 root=-3.9415 alloc=-1.2314 shoot=-0.7262 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.20 days: error (%) tot=-5.9270 root=-3.9694 alloc=-1.2314 shoot=-0.7262 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.30 days: error (%) tot=-6.9338 root=-4.0371 alloc=-1.7286 shoot=-1.1681 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.40 days: error (%) tot=-7.0736 root=-3.9566 alloc=-1.9977 shoot=-1.1192 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.50 days: error (%) tot=-7.3945 root=-4.4602 alloc=-1.8028 shoot=-1.1314 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.60 days: error (%) tot=-7.5798 root=-4.5427 alloc=-1.8986 shoot=-1.1385 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.70 days: error (%) tot=-7.4258 root=-4.3707 alloc=-1.9962 shoot=-1.0589 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.80 days: error (%) tot=-7.4156 root=-4.4508 alloc=-1.9525 shoot=-1.0123 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.90 days: error (%) tot=-7.4677 root=-4.5020 alloc=-1.9525 shoot=-1.0132 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.00 days: error (%) tot=-7.4688 root=-4.5010 alloc=-1.9532 shoot=-1.0146 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.10 days: error (%) tot=-7.4687 root=-4.5001 alloc=-1.9532 shoot=-1.0154 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.20 days: error (%) tot=-7.4692 root=-4.4995 alloc=-1.9532 shoot=-1.0165 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.30 days: error (%) tot=-8.5960 root=-4.4985 alloc=-2.8165 shoot=-1.2811 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.40 days: error (%) tot=-8.8082 root=-4.3128 alloc=-3.3948 shoot=-1.1006 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.50 days: error (%) tot=-8.6993 root=-4.5110 alloc=-3.1607 shoot=-1.0275 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.60 days: error (%) tot=-8.4798 root=-4.4718 alloc=-3.0240 shoot=-0.9840 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.70 days: error (%) tot=-8.6164 root=-4.5735 alloc=-2.9323 shoot=-1.1106 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.80 days: error (%) tot=-8.4656 root=-4.4473 alloc=-2.9178 shoot=-1.1005 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.90 days: error (%) tot=-8.3869 root=-4.4194 alloc=-2.9178 shoot=-1.0496 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.00 days: error (%) tot=-8.3089 root=-4.3923 alloc=-2.9178 shoot=-0.9987 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.10 days: error (%) tot=-8.4524 root=-4.5358 alloc=-2.9178 shoot=-0.9987 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.20 days: error (%) tot=-8.5029 root=-4.5863 alloc=-2.9178 shoot=-0.9987 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.30 days: error (%) tot=-8.5635 root=-4.6336 alloc=-2.9279 shoot=-1.0020 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.40 days: error (%) tot=-8.5953 root=-4.7223 alloc=-2.8818 shoot=-0.9912 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.50 days: error (%) tot=-8.2583 root=-4.5690 alloc=-2.7416 shoot=-0.9477 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.60 days: error (%) tot=-7.8362 root=-4.3394 alloc=-2.5976 shoot=-0.8992 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.70 days: error (%) tot=-7.8809 root=-4.3783 alloc=-2.5251 shoot=-0.9775 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.80 days: error (%) tot=-7.8435 root=-4.3245 alloc=-2.4990 shoot=-1.0200 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.90 days: error (%) tot=-7.7678 root=-4.2968 alloc=-2.4990 shoot=-0.9720 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.00 days: error (%) tot=-7.9888 root=-4.5177 alloc=-2.4990 shoot=-0.9720 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.10 days: error (%) tot=-8.0656 root=-4.5946 alloc=-2.4990 shoot=-0.9720 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.20 days: error (%) tot=-8.0654 root=-4.5944 alloc=-2.4990 shoot=-0.9720 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.30 days: error (%) tot=-8.1450 root=-4.6378 alloc=-2.5088 shoot=-0.9984 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.40 days: error (%) tot=-8.2003 root=-4.7537 alloc=-2.4617 shoot=-0.9849 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.50 days: error (%) tot=-8.0824 root=-4.7211 alloc=-2.3971 shoot=-0.9642 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.60 days: error (%) tot=-7.9435 root=-4.6528 alloc=-2.3431 shoot=-0.9476 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.70 days: error (%) tot=-7.7155 root=-4.5316 alloc=-2.2637 shoot=-0.9203 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.80 days: error (%) tot=-8.1582 root=-4.8078 alloc=-2.2148 shoot=-1.1355 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.90 days: error (%) tot=-8.2036 root=-4.9001 alloc=-2.2148 shoot=-1.0886 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.00 days: error (%) tot=-8.1782 root=-4.9172 alloc=-2.2148 shoot=-1.0461 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.10 days: error (%) tot=-8.3383 root=-5.0774 alloc=-2.2148 shoot=-1.0461 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.20 days: error (%) tot=-8.3832 root=-5.1223 alloc=-2.2148 shoot=-1.0461 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.30 days: error (%) tot=-8.6679 root=-5.1758 alloc=-2.2376 shoot=-1.2545 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.40 days: error (%) tot=-8.6944 root=-5.1060 alloc=-2.4041 shoot=-1.1843 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.50 days: error (%) tot=-8.2548 root=-4.8607 alloc=-2.2848 shoot=-1.1092 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.60 days: error (%) tot=-8.0645 root=-4.8130 alloc=-2.1831 shoot=-1.0683 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.70 days: error (%) tot=-8.2162 root=-4.9188 alloc=-2.1280 shoot=-1.1693 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.80 days: error (%) tot=-8.1109 root=-4.8899 alloc=-2.0980 shoot=-1.1230 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.90 days: error (%) tot=-8.0525 root=-4.8691 alloc=-2.0980 shoot=-1.0854 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.00 days: error (%) tot=-8.1776 root=-4.9995 alloc=-2.0980 shoot=-1.0801 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.10 days: error (%) tot=-8.2322 root=-5.0542 alloc=-2.0980 shoot=-1.0801 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.20 days: error (%) tot=-8.2351 root=-5.0570 alloc=-2.0980 shoot=-1.0801 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.30 days: error (%) tot=-8.3209 root=-5.0917 alloc=-2.1062 shoot=-1.1230 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.40 days: error (%) tot=-8.2668 root=-5.1396 alloc=-2.0361 shoot=-1.0912 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.50 days: error (%) tot=-7.9980 root=-4.9947 alloc=-1.9553 shoot=-1.0480 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.60 days: error (%) tot=-8.1725 root=-5.0798 alloc=-1.9185 shoot=-1.1743 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.70 days: error (%) tot=-7.9596 root=-4.9390 alloc=-1.9112 shoot=-1.1095 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.80 days: error (%) tot=-7.8048 root=-4.8372 alloc=-1.9005 shoot=-1.0671 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.90 days: error (%) tot=-7.8911 root=-4.9046 alloc=-1.9005 shoot=-1.0860 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.00 days: error (%) tot=-7.8711 root=-4.9165 alloc=-1.9005 shoot=-1.0540 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.10 days: error (%) tot=-8.0301 root=-5.0755 alloc=-1.9005 shoot=-1.0540 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.20 days: error (%) tot=-8.0852 root=-5.1307 alloc=-1.9005 shoot=-1.0540 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.30 days: error (%) tot=-8.0778 root=-5.1257 alloc=-1.8990 shoot=-1.0532 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.40 days: error (%) tot=-7.8717 root=-5.0037 alloc=-1.8417 shoot=-1.0263 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.50 days: error (%) tot=-7.4836 root=-4.7573 alloc=-1.7506 shoot=-0.9757 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.60 days: error (%) tot=-7.1480 root=-4.5451 alloc=-1.6712 shoot=-0.9317 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.70 days: error (%) tot=-7.2953 root=-4.6322 alloc=-1.6084 shoot=-1.0547 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.80 days: error (%) tot=-7.2378 root=-4.5954 alloc=-1.6299 shoot=-1.0125 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.90 days: error (%) tot=-7.5805 root=-4.8813 alloc=-1.6299 shoot=-1.0693 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.00 days: error (%) tot=-7.6394 root=-4.9688 alloc=-1.6299 shoot=-1.0407 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.10 days: error (%) tot=-7.7364 root=-5.0658 alloc=-1.6299 shoot=-1.0407 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.20 days: error (%) tot=-7.7699 root=-5.0993 alloc=-1.6299 shoot=-1.0407 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.30 days: error (%) tot=-7.7649 root=-5.0963 alloc=-1.6287 shoot=-1.0399 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.40 days: error (%) tot=-7.6304 root=-5.0141 alloc=-1.5854 shoot=-1.0310 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.50 days: error (%) tot=-7.2785 root=-4.7855 alloc=-1.5184 shoot=-0.9746 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.60 days: error (%) tot=-7.1019 root=-4.6740 alloc=-1.4767 shoot=-0.9512 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.70 days: error (%) tot=-7.3074 root=-4.7975 alloc=-1.4429 shoot=-1.0670 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.80 days: error (%) tot=-7.2472 root=-4.7333 alloc=-1.4867 shoot=-1.0272 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.90 days: error (%) tot=-7.4771 root=-4.9272 alloc=-1.4867 shoot=-1.0631 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.00 days: error (%) tot=-7.5096 root=-4.9862 alloc=-1.4867 shoot=-1.0367 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.10 days: error (%) tot=-7.6111 root=-5.0877 alloc=-1.4867 shoot=-1.0367 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.20 days: error (%) tot=-7.6468 root=-5.1234 alloc=-1.4867 shoot=-1.0367 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.30 days: error (%) tot=-7.6420 root=-5.1203 alloc=-1.4857 shoot=-1.0360 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.40 days: error (%) tot=-7.4975 root=-5.0309 alloc=-1.4501 shoot=-1.0165 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.50 days: error (%) tot=-7.3024 root=-4.9004 alloc=-1.4120 shoot=-0.9900 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.60 days: error (%) tot=-7.1909 root=-4.8320 alloc=-1.3766 shoot=-0.9823 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.70 days: error (%) tot=-7.2029 root=-4.8247 alloc=-1.3473 shoot=-1.0309 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.80 days: error (%) tot=-7.1236 root=-4.7304 alloc=-1.3558 shoot=-1.0375 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.90 days: error (%) tot=-7.0756 root=-4.7110 alloc=-1.3558 shoot=-1.0088 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.00 days: error (%) tot=-7.0282 root=-4.6947 alloc=-1.3558 shoot=-0.9776 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.10 days: error (%) tot=-7.0777 root=-4.7552 alloc=-1.3558 shoot=-0.9666 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.20 days: error (%) tot=-7.1157 root=-4.7932 alloc=-1.3558 shoot=-0.9666 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.30 days: error (%) tot=-7.0998 root=-4.7845 alloc=-1.3517 shoot=-0.9637 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.40 days: error (%) tot=-7.0273 root=-4.7439 alloc=-1.3295 shoot=-0.9539 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.50 days: error (%) tot=-6.8440 root=-4.6285 alloc=-1.2864 shoot=-0.9290 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.60 days: error (%) tot=-6.6422 root=-4.4914 alloc=-1.2449 shoot=-0.9059 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.70 days: error (%) tot=-6.7439 root=-4.5465 alloc=-1.2071 shoot=-0.9902 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.80 days: error (%) tot=-6.6819 root=-4.4496 alloc=-1.2848 shoot=-0.9475 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.90 days: error (%) tot=-6.7393 root=-4.5021 alloc=-1.2848 shoot=-0.9524 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.00 days: error (%) tot=-6.7167 root=-4.5129 alloc=-1.2848 shoot=-0.9190 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.10 days: error (%) tot=-6.7840 root=-4.5857 alloc=-1.2848 shoot=-0.9135 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.20 days: error (%) tot=-6.8162 root=-4.6193 alloc=-1.2848 shoot=-0.9120 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.30 days: error (%) tot=-6.7954 root=-4.6069 alloc=-1.2812 shoot=-0.9073 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.40 days: error (%) tot=-6.8097 root=-4.6208 alloc=-1.2599 shoot=-0.9289 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.50 days: error (%) tot=-6.7002 root=-4.5726 alloc=-1.2358 shoot=-0.8918 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.60 days: error (%) tot=-6.6908 root=-4.5824 alloc=-1.2134 shoot=-0.8951 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.70 days: error (%) tot=-6.6573 root=-4.5644 alloc=-1.1870 shoot=-0.9059 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.80 days: error (%) tot=-6.7085 root=-4.5864 alloc=-1.1680 shoot=-0.9541 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.90 days: error (%) tot=-6.6775 root=-4.5915 alloc=-1.1680 shoot=-0.9180 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.00 days: error (%) tot=-6.7399 root=-4.6643 alloc=-1.1680 shoot=-0.9075 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.10 days: error (%) tot=-6.7696 root=-4.6990 alloc=-1.1680 shoot=-0.9026 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.20 days: error (%) tot=-6.7584 root=-4.6958 alloc=-1.1680 shoot=-0.8947 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.30 days: error (%) tot=-6.7415 root=-4.6879 alloc=-1.1648 shoot=-0.8889 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.40 days: error (%) tot=-6.7672 root=-4.7108 alloc=-1.1466 shoot=-0.9098 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.50 days: error (%) tot=-6.6051 root=-4.6234 alloc=-1.1151 shoot=-0.8666 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.60 days: error (%) tot=-6.5284 root=-4.5762 alloc=-1.0911 shoot=-0.8611 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.70 days: error (%) tot=-6.6394 root=-4.6451 alloc=-1.0703 shoot=-0.9241 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.80 days: error (%) tot=-6.5961 root=-4.6193 alloc=-1.0569 shoot=-0.9198 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.90 days: error (%) tot=-6.5433 root=-4.6006 alloc=-1.0569 shoot=-0.8858 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.00 days: error (%) tot=-6.5818 root=-4.6460 alloc=-1.0569 shoot=-0.8790 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.10 days: error (%) tot=-6.5864 root=-4.6599 alloc=-1.0569 shoot=-0.8697 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.20 days: error (%) tot=-6.6003 root=-4.6731 alloc=-1.0569 shoot=-0.8704 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.30 days: error (%) tot=-6.5794 root=-4.6604 alloc=-1.0541 shoot=-0.8649 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.40 days: error (%) tot=-6.5478 root=-4.6446 alloc=-1.0365 shoot=-0.8667 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.50 days: error (%) tot=-6.4429 root=-4.5780 alloc=-1.0139 shoot=-0.8510 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.60 days: error (%) tot=-6.4150 root=-4.5482 alloc=-1.0065 shoot=-0.8603 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.70 days: error (%) tot=-6.4259 root=-4.5500 alloc=-0.9899 shoot=-0.8861 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.80 days: error (%) tot=-6.3694 root=-4.4504 alloc=-1.0363 shoot=-0.8827 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.90 days: error (%) tot=-6.3623 root=-4.4433 alloc=-1.0363 shoot=-0.8827 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.00 days: error (%) tot=-6.3234 root=-4.4331 alloc=-1.0363 shoot=-0.8540 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.10 days: error (%) tot=-6.3515 root=-4.4646 alloc=-1.0363 shoot=-0.8506 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.20 days: error (%) tot=-6.3707 root=-4.4834 alloc=-1.0363 shoot=-0.8510 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.30 days: error (%) tot=-6.3469 root=-4.4679 alloc=-1.0337 shoot=-0.8453 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.40 days: error (%) tot=-6.3048 root=-4.4436 alloc=-1.0143 shoot=-0.8469 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.50 days: error (%) tot=-6.1935 root=-4.3417 alloc=-1.0234 shoot=-0.8284 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.60 days: error (%) tot=-6.2171 root=-4.3489 alloc=-1.0183 shoot=-0.8499 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.70 days: error (%) tot=-6.1630 root=-4.3126 alloc=-1.0053 shoot=-0.8451 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.80 days: error (%) tot=-6.1417 root=-4.2945 alloc=-1.0039 shoot=-0.8432 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.90 days: error (%) tot=-6.1417 root=-4.2945 alloc=-1.0039 shoot=-0.8432 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.00 days: error (%) tot=-6.1300 root=-4.2875 alloc=-1.0039 shoot=-0.8387 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.10 days: error (%) tot=-6.1292 root=-4.2887 alloc=-1.0039 shoot=-0.8365 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.20 days: error (%) tot=-6.1212 root=-4.2858 alloc=-1.0039 shoot=-0.8316 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.30 days: error (%) tot=-6.1161 root=-4.2838 alloc=-1.0015 shoot=-0.8308 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.40 days: error (%) tot=-6.0917 root=-4.2612 alloc=-0.9980 shoot=-0.8325 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.50 days: error (%) tot=-6.0167 root=-4.1913 alloc=-1.0049 shoot=-0.8205 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.60 days: error (%) tot=-5.9865 root=-4.1746 alloc=-0.9914 shoot=-0.8205 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.70 days: error (%) tot=-5.9366 root=-4.1410 alloc=-0.9813 shoot=-0.8143 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.80 days: error (%) tot=-5.9122 root=-4.1217 alloc=-0.9790 shoot=-0.8114 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.90 days: error (%) tot=-5.9124 root=-4.1219 alloc=-0.9790 shoot=-0.8114 for maize_1_1	1x
+PlantCarbonBalance: balance error at +42.00 days: error (%) tot=-5.9122 root=-4.1218 alloc=-0.9790 shoot=-0.8114 for maize_1_1	1x
+PlantCarbonBalance: carbonAvailableForGrowth!=plantCarbonIncome-plantRepiration-exudates-storage for maize_1_1	158x
 ReadXMLfile: Setting default maximum time step to 0.1	1x
+RelativeCarbonAllocation2ShootPotentialGrowth: Not enough carbon for potential growth. Setting shoot growth to max available carbon.	740x
+RootBrances: fixing TimeShift error for finelateral - check your branching rules. This may also happen if the growth rate of the parent root is increasing over time.	5x
+RootBrances: fixing TimeShift error for lateral - check your branching rules. This may also happen if the growth rate of the parent root is increasing over time.	20x
 RootDataPoints:: "/simulationControls/integrationParameters/maxTimeBetweenRootNodes" not set, but note that the default is 100 days for backward compatibility - meaning that nodes are created mostly based on distance. Setting this with a much smaller time will increase precision, but also the number of nodes if you have slow growing roots.	1x
+RootGrowthScalingFactor: result is greater than 1	499x
+RootSegmentLength: length based on estimated code, but this should not be the case as nodes are not created based on estimates.	44x
+RootSegmentLength: length based on estimated code, but this should not be the case as nodes are not created based on estimates. (2)	5839x
 RootSegmentRespirationRate: Reduction due to RCA simulated.	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/shadedStomatalResistancenot found, using default value of 100 m/s	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/stomatalResistancenot found, using default value of 100 m/s	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/sunlitStomatalResistancenot found, using default value of 100 m/s	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 18.600000 setting value to 2501.927239	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 2.700000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 20.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 20.300000 setting value to 4340.743254	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 20.500000 setting value to 11841.554920	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 21.300000 setting value to 3875.750268	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 21.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 21.600000 setting value to 5319.554724	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 22.300000 setting value to 3682.920985	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 22.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 23.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 23.300000 setting value to 4121.393012	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 24.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 24.300000 setting value to 4708.689025	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 25.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 25.300000 setting value to 4559.654468	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 26.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 26.300000 setting value to 4387.190841	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 27.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 27.300000 setting value to 4702.518030	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 28.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 28.300000 setting value to 4105.411978	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 28.600000 setting value to 3591.189383	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 29.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 29.300000 setting value to 4545.022842	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 3.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 30.300000 setting value to 3844.531720	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 30.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 30.700000 setting value to 3008.500789	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 31.300000 setting value to 3952.725815	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 31.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 32.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 32.300000 setting value to 4392.211519	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 33.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 33.300000 setting value to 4194.506200	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 33.600000 setting value to 3609.243988	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 33.600000 setting value to 8944.260637	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 33.700000 setting value to 8944.260637	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 34.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 34.300000 setting value to 4449.518091	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 35.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 35.300000 setting value to 5569.453707	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 36.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 36.600000 setting value to 10170.895780	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 36.700000 setting value to 10170.895780	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 37.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 37.700000 setting value to 3936.729908	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 38.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 38.600000 setting value to 4906.620555	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 38.700000 setting value to 1921.202713	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 39.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 39.600000 setting value to 1783.976216	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 39.600000 setting value to 732.649970	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 39.700000 setting value to 732.649970	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 4.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 40.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 40.400000 setting value to 1923.460495	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 40.500000 setting value to 875.521189	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 40.600000 setting value to 2290.437828	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 40.600000 setting value to 897.242502	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 41.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating carbonLimitedPhotosynthesisRate at time 2.700000 setting value to 10.620175	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 18.600000 setting value to 14.804370	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 20.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 20.500000 setting value to 38.273259	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.600000 setting value to 43.196575	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 22.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 23.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 24.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 25.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 26.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 27.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 28.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 28.600000 setting value to 41.504561	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 29.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 3.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 30.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 30.700000 setting value to 41.203511	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 31.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.600000 setting value to 42.937892	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.600000 setting value to 8.629092	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 34.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 35.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.600000 setting value to 45.281875	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.700000 setting value to 41.577901	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.600000 setting value to 45.882289	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.700000 setting value to 41.912565	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.600000 setting value to 39.663708	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.600000 setting value to 6.073467	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 4.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.400000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.500000 setting value to 35.709877	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.600000 setting value to 48.334062	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.600000 setting value to 5.602201	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 41.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 20.300000 setting value to 1.318917	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 21.300000 setting value to 1.268246	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 22.300000 setting value to 1.222690	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 23.300000 setting value to 1.178043	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 24.300000 setting value to 1.134636	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 25.300000 setting value to 1.078217	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 26.300000 setting value to 1.030579	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 27.300000 setting value to 0.985516	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 28.300000 setting value to 0.935178	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 29.300000 setting value to 0.899393	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 30.300000 setting value to 0.851669	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 31.300000 setting value to 0.811837	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 32.300000 setting value to 0.778317	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 33.300000 setting value to 0.748833	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 34.300000 setting value to 0.721358	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 35.300000 setting value to 0.698965	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 18.600000 setting value to 2501.927239	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 2.600000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 2.700000 setting value to 402.900000	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 20.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 20.300000 setting value to 4340.743254	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 20.500000 setting value to 11841.554920	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 21.300000 setting value to 3875.750268	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 21.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 21.600000 setting value to 5319.554724	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 22.300000 setting value to 3682.920985	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 22.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 23.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 23.300000 setting value to 4121.393012	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 24.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 24.300000 setting value to 4708.689025	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 25.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 25.300000 setting value to 4559.654468	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 26.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 26.300000 setting value to 4387.190841	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 27.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 27.300000 setting value to 4702.518030	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 28.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 28.300000 setting value to 4105.411978	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 28.600000 setting value to 3591.189383	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 29.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 29.300000 setting value to 4545.022842	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 3.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 3.400000 setting value to 1152.079210	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 3.600000 setting value to 1143.276758	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 30.300000 setting value to 3844.531720	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 30.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 30.600000 setting value to 289.924985	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 30.700000 setting value to 3008.500789	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 31.300000 setting value to 3952.725815	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 31.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.300000 setting value to 4392.211519	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.600000 setting value to 680.477788	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.700000 setting value to 640.127521	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 33.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 33.300000 setting value to 4194.506200	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 33.600000 setting value to 3609.243988	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 33.600000 setting value to 8944.260637	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 33.700000 setting value to 8944.260637	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 34.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 34.300000 setting value to 4449.518091	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 34.700000 setting value to 325.359774	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 35.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 35.300000 setting value to 5569.453707	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 35.700000 setting value to 1325.862945	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 36.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 36.600000 setting value to 10170.895780	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 36.700000 setting value to 10170.895780	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 37.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 37.600000 setting value to 347.721636	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 37.700000 setting value to 3936.729908	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 37.700000 setting value to 4358.366860	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 38.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 38.600000 setting value to 4906.620555	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 38.700000 setting value to 1921.202713	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 39.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 39.400000 setting value to 1996.560745	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 39.600000 setting value to 1783.976216	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 39.600000 setting value to 732.649970	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 39.700000 setting value to 732.649970	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 4.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 4.400000 setting value to 1133.565664	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.400000 setting value to 1923.460495	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.500000 setting value to 875.521189	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.600000 setting value to 2290.437828	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.600000 setting value to 897.242502	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 40.700000 setting value to 39.602201	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 41.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 41.600000 setting value to 331.759167	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 41.700000 setting value to 304.273256	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 2.700000 setting value to 10.620175	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 30.600000 setting value to 7.940716	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 32.700000 setting value to 14.800055	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 34.700000 setting value to 8.414335	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 37.600000 setting value to 8.435898	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 40.700000 setting value to 35.153347	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 18.600000 setting value to 14.804370	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 20.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 20.500000 setting value to 38.273259	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.600000 setting value to 43.196575	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 22.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 23.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 24.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 25.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 26.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 27.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 28.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 28.600000 setting value to 41.504561	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 29.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 3.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 30.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 30.700000 setting value to 41.203511	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 31.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.600000 setting value to 42.937892	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.600000 setting value to 8.629092	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 33.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 34.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 35.300000 setting value to 0.000000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.600000 setting value to 45.281875	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 36.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.700000 setting value to 41.577901	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.600000 setting value to 45.882289	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.700000 setting value to 41.912565	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.600000 setting value to 39.663708	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.600000 setting value to 6.073467	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 39.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 4.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.400000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.500000 setting value to 35.709877	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.600000 setting value to 48.334062	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 40.600000 setting value to 5.602201	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 41.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 20.600000 setting value to 0.161933	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 31.600000 setting value to 0.141881	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 38.550000 setting value to 0.140440	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 40.285484 setting value to 0.074477	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 40.295161 setting value to 0.017000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 10.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 10.750000 setting value to 30.438136	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 11.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 11.750000 setting value to 29.526482	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 12.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 12.750000 setting value to 30.120959	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 13.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 13.750000 setting value to 29.824103	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 14.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 14.750000 setting value to 29.477739	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 15.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 16.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 17.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 18.550000 setting value to 14.804370	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 18.600000 setting value to 14.804370	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 18.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 19.350000 setting value to 30.366602	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 19.550000 setting value to 14.809241	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 2.600000 setting value to 10.013225	4x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 2.700000 setting value to 35.448585	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 20.300000 setting value to 1.318917	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 20.300000 setting value to 1.394513	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 20.500000 setting value to 18.528013	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 20.550000 setting value to 42.119872	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.300000 setting value to 1.268246	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.300000 setting value to 1.362477	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.350000 setting value to 23.866292	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.450000 setting value to 13.896729	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.500000 setting value to 13.034350	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.600000 setting value to 21.684214	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.300000 setting value to 1.222690	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.300000 setting value to 1.341197	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.550000 setting value to 8.255147	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.300000 setting value to 1.178043	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.300000 setting value to 1.329149	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.300000 setting value to 1.134636	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.300000 setting value to 1.316680	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.500000 setting value to 10.556929	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.300000 setting value to 1.078217	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.300000 setting value to 1.295035	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.450000 setting value to 12.540622	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.450000 setting value to 12.548946	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.550000 setting value to 12.913592	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.550000 setting value to 12.921791	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 25.650000 setting value to 7.607318	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.300000 setting value to 1.030579	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.300000 setting value to 1.281993	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.550000 setting value to 9.790784	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.300000 setting value to 0.985516	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.300000 setting value to 1.270550	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.300000 setting value to 0.935178	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.300000 setting value to 1.249144	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.450000 setting value to 11.320985	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.450000 setting value to 8.026141	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.500000 setting value to 9.985922	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 28.600000 setting value to 11.022813	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 29.300000 setting value to 0.899393	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 29.300000 setting value to 1.241237	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 29.450000 setting value to 10.967221	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 29.500000 setting value to 10.365340	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 3.300000 setting value to 1.981242	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 3.400000 setting value to 35.215920	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 3.600000 setting value to 26.667851	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 3.750000 setting value to 31.600405	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 3.750000 setting value to 32.113351	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 30.300000 setting value to 0.851669	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 30.300000 setting value to 1.223752	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 30.550000 setting value to 7.940716	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 30.600000 setting value to 7.940716	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 30.700000 setting value to 36.121136	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 31.300000 setting value to 0.811837	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 31.300000 setting value to 1.216574	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.300000 setting value to 0.778317	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.300000 setting value to 1.210613	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.600000 setting value to 19.349916	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.700000 setting value to 35.556686	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 33.300000 setting value to 0.748833	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 33.300000 setting value to 1.203039	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 33.600000 setting value to 34.630869	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 33.600000 setting value to 8.546807	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 33.700000 setting value to 32.480484	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 34.300000 setting value to 0.721358	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 34.300000 setting value to 1.200363	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 34.700000 setting value to 33.392719	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 35.300000 setting value to 0.698965	5x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 35.300000 setting value to 1.201392	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 35.700000 setting value to 26.764494	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 36.300000 setting value to 1.194460	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 36.600000 setting value to 30.546695	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 36.700000 setting value to 34.285016	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.300000 setting value to 1.195372	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.550000 setting value to 8.435898	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.600000 setting value to 8.435898	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.700000 setting value to 23.977801	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.700000 setting value to 7.306649	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 38.300000 setting value to 1.189267	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 38.600000 setting value to 13.659548	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 38.700000 setting value to 11.914307	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.300000 setting value to 1.187550	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.400000 setting value to 12.106540	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.600000 setting value to 5.739083	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.600000 setting value to 9.371707	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 39.700000 setting value to 7.633325	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 4.300000 setting value to 1.925205	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 4.400000 setting value to 32.868953	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 4.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.300000 setting value to 1.185826	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.350000 setting value to 23.944191	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.400000 setting value to 23.944191	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.500000 setting value to 8.578122	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.600000 setting value to 5.386301	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.600000 setting value to 8.175214	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.650000 setting value to 0.000000	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 40.700000 setting value to 0.000000	4x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.300000 setting value to 1.181430	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.300000 setting value to 10.801356	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.600000 setting value to 7.901143	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.650000 setting value to 8.265021	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.650000 setting value to 8.313257	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 41.700000 setting value to 8.265021	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 5.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 6.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 6.750000 setting value to 30.512435	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 7.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 7.750000 setting value to 30.142935	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 8.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 8.750000 setting value to 31.510606	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 9.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 9.750000 setting value to 30.151895	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 20.600000 setting value to 256.944535	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 22.650000 setting value to 128.007586	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 24.450000 setting value to 15.895720	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 31.600000 setting value to 813.749804	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 38.550000 setting value to 635.806567	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 19.450000 setting value to 0.101643	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 21.450000 setting value to 0.094271	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 21.600000 setting value to 0.103539	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 21.700000 setting value to 0.154550	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 28.350000 setting value to 0.257838	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 28.700000 setting value to 0.135505	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 33.450000 setting value to 0.331694	2x
+SimulaExternal:: locked, and it has no predictor. This is likely to cause extrapolation warnings. 	50745047x
+SimulaTable:: Extrapolation at end of table bottomBoundaryFluxRate	30x
+SimulaTable:: Extrapolation at end of table hydraulicHeadAtRootSurface	855472x
+SimulaTable:: Extrapolation at end of table residualWaterContent	2x
+SimulaTable:: Extrapolation at end of table rootSegmentWaterUptakeRate	9195x
+SimulaTable:: Extrapolation at end of table rootWaterOutflowRate	2x
+SimulaTable:: Extrapolation at end of table saturatedWaterContent	2x
+SimulaTable:: Extrapolation at end of table topBoundaryFluxRate	30x
+SimulaTable:: Extrapolation at end of table totalSinkRate	30x
+SimulaTable:: Extrapolation at end of table volumetricWaterContentAtTheRootSurface	554639x
 SumCarbonCosts: Did not find rootCarbonCostOfBiologicalNitrogenFixation. And thus not including it in the costs.	1x
 SumCarbonCosts: Did not find rootCarbonCostOfNutrientUptake. And thus not including it in the costs.	1x
+Swms3d::getTimeStepSWMS:: wallTime before lastTime, this is bad - ignoring wall time.	985x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 29.200000, continuing with an error of (ml) -0.000619	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 29.800000, continuing with an error of (ml) -0.000656	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 31.200000, continuing with an error of (ml) -0.000394	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.750000, continuing with an error of (ml) 0.000428	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.850000, continuing with an error of (ml) -0.000561	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.800000, continuing with an error of (ml) 0.002126	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 36.800000, continuing with an error of (ml) 0.002067	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.300000, continuing with an error of (ml) -0.001463	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.350000, continuing with an error of (ml) 0.001235	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.450000, continuing with an error of (ml) -0.003826	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.750000, continuing with an error of (ml) 0.001836	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.850000, continuing with an error of (ml) -0.001584	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.900000, continuing with an error of (ml) 0.000371	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.050000, continuing with an error of (ml) 0.000600	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.300000, continuing with an error of (ml) 0.004529	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.350000, continuing with an error of (ml) -0.001649	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.400000, continuing with an error of (ml) -0.005610	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.700000, continuing with an error of (ml) -0.002846	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.700000, continuing with an error of (ml) 0.002438	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.850000, continuing with an error of (ml) -0.000578	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.950000, continuing with an error of (ml) 0.000667	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 39.200000, continuing with an error of (ml) 0.002311	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 39.300000, continuing with an error of (ml) -0.003094	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 39.950000, continuing with an error of (ml) 0.001814	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.150000, continuing with an error of (ml) -0.001069	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.200000, continuing with an error of (ml) -0.001118	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.250000, continuing with an error of (ml) 0.001258	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.300000, continuing with an error of (ml) 0.005227	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.450000, continuing with an error of (ml) 0.005536	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.800000, continuing with an error of (ml) -0.000941	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 41.100000, continuing with an error of (ml) 0.001650	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 41.350000, continuing with an error of (ml) -0.001326	1x
+Watflow: top soil too dry, in order to have the evaporation. 	86384x
+Watflow::calculate: Did not converge fast enough, reducing timestep by a factor 3 and trying again.	1x
 vanGenuchten: Setting minimum conductivity, which can prevent the water model from crashing.	1x

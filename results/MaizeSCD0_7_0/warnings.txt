@@ -1,20 +1,410 @@
-Simulation took (hours:minutes:seconds): 0:0:0
+Simulation took (hours:minutes:seconds): 4:11:48
 THE MODEL PUT OUT WARNINGS:
-ETBaseClass: Using /environment/atmosphere/netRadiation. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	1x
-ETBaseClass: Using /environment/atmosphere/netRadiationSoil. Consider using the radiation code which converts incoming shortwave solar radiation defined in /environment/atmosphere/netSolarRadiation to this using correct albedo and the temperature based estimation of long wave radiation out.	3x
-FATAL ERROR: LeafTemperature: This class needs checking, especially the unit conversion and if the use and naming of irradiation is consistent with other classes	1x
+At 42 days mem usage was 845 mB.	1x
+CarbonAvailableForGrowth:  negative values: carbon production lower than compulsory cost of respiration/exudates? Setting growth to 0, this will cause balance errors	322x
+Doussan: exponentForStomatalClosure not found, defaulting to 2	1x
+Doussan: minimumWaterPotentialAtTheCollar not found, defaulting to -15000hPa.	1x
+Doussan: waterPotentialAtTheCollarAtOnsetOfStomatalClosing not found, defaulting to -4000hPa.	1x
 FieldPlanting: setting maxCorner to 25	0	12.5	1x
 FieldPlanting: setting minCorner to -25	-150	-12.5	1x
+ImpedanceGao: Soil physical and hydraulic parameters are inconsistent. Water content at saturation differs more than 10% from porosity implied by bulk density	2037338x
 MeanLeafAreaIndex: Assuming all plants are planted at t = 0. If this is not the case, add 'plantsPlantedAtDifferentTimes' under 'environment'.	3x
-OpenSimRoot was built on Mar 19 2026 from git version 0980e2ff9f	1x
-PlantCarbonBalance: balance error at +0.00 days: error (%) tot=+100.0000 root=+0.0000 alloc=+100.0000 for maize_1_1	1x
-PlantCarbonBalance: carbonAvailableForGrowth!=plantCarbonIncome-plantRepiration-exudates-storage for maize_1_1	1x
+OpenSimRoot was built on Mar 29 2026 from git version aaa2c0aebe	1x
+PlantCarbonBalance: balance error at +16.50 days: error (%) tot=-0.5683 root=-0.4144 alloc=+0.0074 shoot=-0.1613 for maize_1_1	1x
+PlantCarbonBalance: balance error at +16.60 days: error (%) tot=-0.5356 root=-0.3904 alloc=+0.0071 shoot=-0.1523 for maize_1_1	1x
+PlantCarbonBalance: balance error at +16.70 days: error (%) tot=-0.5037 root=-0.3637 alloc=+0.0068 shoot=-0.1468 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.50 days: error (%) tot=-0.8571 root=-0.6578 alloc=+0.0060 shoot=-0.2052 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.60 days: error (%) tot=-0.8397 root=-0.6934 alloc=+0.0057 shoot=-0.1520 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.70 days: error (%) tot=-1.4499 root=-1.1191 alloc=+0.0055 shoot=-0.3363 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.80 days: error (%) tot=-1.5149 root=-1.2328 alloc=+0.0054 shoot=-0.2876 for maize_1_1	1x
+PlantCarbonBalance: balance error at +17.90 days: error (%) tot=-1.8189 root=-1.5456 alloc=+0.0054 shoot=-0.2787 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.00 days: error (%) tot=-1.9347 root=-1.6614 alloc=+0.0054 shoot=-0.2787 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.10 days: error (%) tot=-1.9366 root=-1.6633 alloc=+0.0054 shoot=-0.2787 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.20 days: error (%) tot=-1.9340 root=-1.6614 alloc=+0.0054 shoot=-0.2780 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.30 days: error (%) tot=-1.8954 root=-1.6284 alloc=+0.0053 shoot=-0.2723 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.40 days: error (%) tot=-1.8357 root=-1.5771 alloc=+0.0051 shoot=-0.2637 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.50 days: error (%) tot=-2.2224 root=-1.7907 alloc=+0.0049 shoot=-0.4365 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.60 days: error (%) tot=-2.1594 root=-1.7860 alloc=+0.0047 shoot=-0.3781 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.70 days: error (%) tot=-2.7665 root=-2.2041 alloc=+0.0045 shoot=-0.5669 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.80 days: error (%) tot=-2.8181 root=-2.3042 alloc=+0.0044 shoot=-0.5183 for maize_1_1	1x
+PlantCarbonBalance: balance error at +18.90 days: error (%) tot=-3.1492 root=-2.6452 alloc=+0.0044 shoot=-0.5083 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.00 days: error (%) tot=-3.2750 root=-2.7711 alloc=+0.0044 shoot=-0.5083 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.10 days: error (%) tot=-3.2773 root=-2.7734 alloc=+0.0044 shoot=-0.5083 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.20 days: error (%) tot=-3.2727 root=-2.7695 alloc=+0.0044 shoot=-0.5076 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.30 days: error (%) tot=-3.1986 root=-2.7068 alloc=+0.0043 shoot=-0.4961 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.40 days: error (%) tot=-3.0474 root=-2.5785 alloc=+0.0037 shoot=-0.4726 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.50 days: error (%) tot=-2.9932 root=-2.5121 alloc=+0.0034 shoot=-0.4845 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.60 days: error (%) tot=-3.0275 root=-2.4962 alloc=+0.0120 shoot=-0.5434 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.70 days: error (%) tot=-2.8782 root=-2.3944 alloc=+0.0152 shoot=-0.4990 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.80 days: error (%) tot=-2.9113 root=-2.4097 alloc=+0.0149 shoot=-0.5165 for maize_1_1	1x
+PlantCarbonBalance: balance error at +19.90 days: error (%) tot=-2.8951 root=-2.4218 alloc=+0.0149 shoot=-0.4882 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.00 days: error (%) tot=-2.8556 root=-2.4082 alloc=+0.0149 shoot=-0.4623 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.10 days: error (%) tot=-2.9546 root=-2.5071 alloc=+0.0149 shoot=-0.4623 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.20 days: error (%) tot=-2.9840 root=-2.5371 alloc=+0.0149 shoot=-0.4617 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.30 days: error (%) tot=-2.9088 root=-2.4732 alloc=+0.0145 shoot=-0.4501 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.40 days: error (%) tot=-2.7569 root=-2.3442 alloc=+0.0138 shoot=-0.4265 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.50 days: error (%) tot=-2.7977 root=-2.3329 alloc=+0.0129 shoot=-0.4777 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.60 days: error (%) tot=-2.7817 root=-2.2650 alloc=+0.0133 shoot=-0.5300 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.70 days: error (%) tot=-2.6407 root=-2.1183 alloc=+0.0129 shoot=-0.5354 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.80 days: error (%) tot=-2.5625 root=-2.0366 alloc=+0.0086 shoot=-0.5345 for maize_1_1	1x
+PlantCarbonBalance: balance error at +20.90 days: error (%) tot=-2.5194 root=-2.0192 alloc=+0.0085 shoot=-0.5087 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.00 days: error (%) tot=-2.4820 root=-2.0052 alloc=+0.0085 shoot=-0.4853 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.10 days: error (%) tot=-2.6936 root=-2.2169 alloc=+0.0085 shoot=-0.4853 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.20 days: error (%) tot=-2.7597 root=-2.2835 alloc=+0.0085 shoot=-0.4847 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.30 days: error (%) tot=-2.6926 root=-2.2279 alloc=+0.0083 shoot=-0.4730 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.40 days: error (%) tot=-2.5659 root=-2.1232 alloc=+0.0080 shoot=-0.4507 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.50 days: error (%) tot=-2.7988 root=-2.2481 alloc=+0.0085 shoot=-0.5592 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.60 days: error (%) tot=-2.8068 root=-2.2170 alloc=+0.0153 shoot=-0.6051 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.70 days: error (%) tot=-2.8099 root=-2.1782 alloc=+0.0218 shoot=-0.6534 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.80 days: error (%) tot=-2.7174 root=-2.0373 alloc=-0.0392 shoot=-0.6409 for maize_1_1	1x
+PlantCarbonBalance: balance error at +21.90 days: error (%) tot=-2.6716 root=-2.0186 alloc=-0.0391 shoot=-0.6139 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.00 days: error (%) tot=-2.6332 root=-2.0043 alloc=-0.0391 shoot=-0.5898 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.10 days: error (%) tot=-2.8978 root=-2.2689 alloc=-0.0391 shoot=-0.5898 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.20 days: error (%) tot=-2.9814 root=-2.3532 alloc=-0.0391 shoot=-0.5891 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.30 days: error (%) tot=-2.9120 root=-2.2982 alloc=-0.0382 shoot=-0.5756 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.40 days: error (%) tot=-2.8289 root=-2.2328 alloc=-0.0370 shoot=-0.5591 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.50 days: error (%) tot=-2.9779 root=-2.3116 alloc=-0.0287 shoot=-0.6376 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.60 days: error (%) tot=-2.8933 root=-2.2726 alloc=-0.0272 shoot=-0.5935 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.70 days: error (%) tot=-3.0524 root=-2.4158 alloc=-0.0199 shoot=-0.6167 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.80 days: error (%) tot=-3.0250 root=-2.4231 alloc=-0.0192 shoot=-0.5827 for maize_1_1	1x
+PlantCarbonBalance: balance error at +22.90 days: error (%) tot=-3.3018 root=-2.6109 alloc=-0.0192 shoot=-0.6716 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.00 days: error (%) tot=-3.3388 root=-2.6692 alloc=-0.0192 shoot=-0.6504 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.10 days: error (%) tot=-3.4691 root=-2.7996 alloc=-0.0192 shoot=-0.6504 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.20 days: error (%) tot=-3.5096 root=-2.8407 alloc=-0.0192 shoot=-0.6497 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.30 days: error (%) tot=-3.4283 root=-2.7748 alloc=-0.0187 shoot=-0.6347 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.40 days: error (%) tot=-3.3299 root=-2.6953 alloc=-0.0181 shoot=-0.6165 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.50 days: error (%) tot=-3.4945 root=-2.7934 alloc=-0.0110 shoot=-0.6901 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.60 days: error (%) tot=-3.4581 root=-2.7959 alloc=-0.0040 shoot=-0.6583 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.70 days: error (%) tot=-3.4855 root=-2.8468 alloc=+0.0030 shoot=-0.6417 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.80 days: error (%) tot=-3.4555 root=-2.8344 alloc=+0.0081 shoot=-0.6292 for maize_1_1	1x
+PlantCarbonBalance: balance error at +23.90 days: error (%) tot=-3.6030 root=-2.9232 alloc=+0.0081 shoot=-0.6879 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.00 days: error (%) tot=-3.6043 root=-2.9471 alloc=+0.0081 shoot=-0.6653 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.10 days: error (%) tot=-3.6897 root=-3.0324 alloc=+0.0081 shoot=-0.6653 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.20 days: error (%) tot=-3.7154 root=-3.0588 alloc=+0.0080 shoot=-0.6647 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.30 days: error (%) tot=-3.6320 root=-2.9901 alloc=+0.0079 shoot=-0.6497 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.40 days: error (%) tot=-3.4565 root=-2.8458 alloc=+0.0076 shoot=-0.6183 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.50 days: error (%) tot=-3.4302 root=-2.7898 alloc=+0.0071 shoot=-0.6475 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.60 days: error (%) tot=-3.2915 root=-2.6802 alloc=+0.0083 shoot=-0.6196 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.70 days: error (%) tot=-3.2780 root=-2.6543 alloc=+0.0146 shoot=-0.6384 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.80 days: error (%) tot=-3.2026 root=-2.6141 alloc=+0.0145 shoot=-0.6030 for maize_1_1	1x
+PlantCarbonBalance: balance error at +24.90 days: error (%) tot=-3.7138 root=-2.9520 alloc=+0.0144 shoot=-0.7762 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.00 days: error (%) tot=-3.7959 root=-3.0579 alloc=+0.0144 shoot=-0.7524 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.10 days: error (%) tot=-4.1116 root=-3.3736 alloc=+0.0144 shoot=-0.7524 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.20 days: error (%) tot=-4.2118 root=-3.4745 alloc=+0.0144 shoot=-0.7518 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.30 days: error (%) tot=-4.1386 root=-3.4138 alloc=+0.0142 shoot=-0.7389 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.40 days: error (%) tot=-3.9847 root=-3.2870 alloc=+0.0137 shoot=-0.7114 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.50 days: error (%) tot=-3.8871 root=-3.1961 alloc=+0.0132 shoot=-0.7042 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.60 days: error (%) tot=-3.8824 root=-3.1630 alloc=+0.0192 shoot=-0.7386 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.70 days: error (%) tot=-3.7502 root=-3.0759 alloc=+0.0214 shoot=-0.6957 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.80 days: error (%) tot=-3.7549 root=-3.0765 alloc=+0.0212 shoot=-0.6996 for maize_1_1	1x
+PlantCarbonBalance: balance error at +25.90 days: error (%) tot=-3.7385 root=-3.0829 alloc=+0.0211 shoot=-0.6768 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.00 days: error (%) tot=-3.7190 root=-3.0847 alloc=+0.0211 shoot=-0.6554 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.10 days: error (%) tot=-3.7681 root=-3.1338 alloc=+0.0211 shoot=-0.6554 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.20 days: error (%) tot=-3.7798 root=-3.1460 alloc=+0.0211 shoot=-0.6549 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.30 days: error (%) tot=-3.7207 root=-3.0968 alloc=+0.0208 shoot=-0.6447 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.40 days: error (%) tot=-3.6177 root=-3.0112 alloc=+0.0203 shoot=-0.6269 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.50 days: error (%) tot=-3.6194 root=-3.0029 alloc=+0.0259 shoot=-0.6424 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.60 days: error (%) tot=-3.5098 root=-2.9173 alloc=+0.0309 shoot=-0.6234 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.70 days: error (%) tot=-3.3557 root=-2.8022 alloc=+0.0300 shoot=-0.5834 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.80 days: error (%) tot=-3.4917 root=-2.8848 alloc=+0.0295 shoot=-0.6364 for maize_1_1	1x
+PlantCarbonBalance: balance error at +26.90 days: error (%) tot=-3.5090 root=-2.8981 alloc=+0.0294 shoot=-0.6403 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.00 days: error (%) tot=-3.4826 root=-2.8884 alloc=+0.0294 shoot=-0.6236 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.10 days: error (%) tot=-3.5797 root=-2.9856 alloc=+0.0294 shoot=-0.6236 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.20 days: error (%) tot=-3.6104 root=-3.0166 alloc=+0.0294 shoot=-0.6232 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.30 days: error (%) tot=-3.5512 root=-2.9672 alloc=+0.0289 shoot=-0.6130 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.40 days: error (%) tot=-3.4489 root=-2.8818 alloc=+0.0282 shoot=-0.5953 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.50 days: error (%) tot=-3.4652 root=-2.8815 alloc=+0.0328 shoot=-0.6165 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.60 days: error (%) tot=-3.4020 root=-2.8400 alloc=+0.0374 shoot=-0.5994 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.70 days: error (%) tot=-3.2911 root=-2.7647 alloc=+0.0416 shoot=-0.5680 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.80 days: error (%) tot=-3.2712 root=-2.7535 alloc=+0.0410 shoot=-0.5587 for maize_1_1	1x
+PlantCarbonBalance: balance error at +27.90 days: error (%) tot=-3.3582 root=-2.8106 alloc=+0.0410 shoot=-0.5885 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.00 days: error (%) tot=-3.3524 root=-2.8215 alloc=+0.0410 shoot=-0.5719 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.10 days: error (%) tot=-3.3950 root=-2.8640 alloc=+0.0410 shoot=-0.5719 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.20 days: error (%) tot=-3.4085 root=-2.8779 alloc=+0.0409 shoot=-0.5716 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.30 days: error (%) tot=-3.3604 root=-2.8372 alloc=+0.0404 shoot=-0.5635 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.40 days: error (%) tot=-3.2533 root=-2.7469 alloc=+0.0392 shoot=-0.5456 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.50 days: error (%) tot=-3.1542 root=-2.6607 alloc=+0.0378 shoot=-0.5313 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.60 days: error (%) tot=-3.1822 root=-2.6562 alloc=+0.0418 shoot=-0.5678 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.70 days: error (%) tot=-3.0943 root=-2.5861 alloc=+0.0412 shoot=-0.5494 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.80 days: error (%) tot=-3.0723 root=-2.5640 alloc=+0.0409 shoot=-0.5492 for maize_1_1	1x
+PlantCarbonBalance: balance error at +28.90 days: error (%) tot=-3.0499 root=-2.5600 alloc=+0.0408 shoot=-0.5307 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.00 days: error (%) tot=-3.0878 root=-2.6100 alloc=+0.0408 shoot=-0.5186 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.10 days: error (%) tot=-3.1237 root=-2.6459 alloc=+0.0408 shoot=-0.5186 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.20 days: error (%) tot=-3.1281 root=-2.6505 alloc=+0.0408 shoot=-0.5184 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.30 days: error (%) tot=-3.0888 root=-2.6172 alloc=+0.0403 shoot=-0.5118 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.40 days: error (%) tot=-2.9971 root=-2.5397 alloc=+0.0392 shoot=-0.4967 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.50 days: error (%) tot=-2.8974 root=-2.4553 alloc=+0.0379 shoot=-0.4799 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.60 days: error (%) tot=-2.9317 root=-2.4568 alloc=+0.0417 shoot=-0.5166 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.70 days: error (%) tot=-2.8448 root=-2.3863 alloc=+0.0406 shoot=-0.4990 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.80 days: error (%) tot=-2.8287 root=-2.3671 alloc=+0.0401 shoot=-0.5018 for maize_1_1	1x
+PlantCarbonBalance: balance error at +29.90 days: error (%) tot=-2.8092 root=-2.3651 alloc=+0.0401 shoot=-0.4841 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.00 days: error (%) tot=-2.8298 root=-2.4015 alloc=+0.0401 shoot=-0.4683 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.10 days: error (%) tot=-2.8674 root=-2.4391 alloc=+0.0401 shoot=-0.4683 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.20 days: error (%) tot=-2.8740 root=-2.4459 alloc=+0.0401 shoot=-0.4681 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.30 days: error (%) tot=-2.8383 root=-2.4156 alloc=+0.0396 shoot=-0.4624 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.40 days: error (%) tot=-2.7576 root=-2.3469 alloc=+0.0386 shoot=-0.4492 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.50 days: error (%) tot=-2.6633 root=-2.2665 alloc=+0.0369 shoot=-0.4336 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.60 days: error (%) tot=-2.6669 root=-2.2458 alloc=+0.0356 shoot=-0.4567 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.70 days: error (%) tot=-2.6515 root=-2.2035 alloc=+0.0346 shoot=-0.4826 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.80 days: error (%) tot=-2.5979 root=-2.1697 alloc=+0.0344 shoot=-0.4626 for maize_1_1	1x
+PlantCarbonBalance: balance error at +30.90 days: error (%) tot=-2.5720 root=-2.1591 alloc=+0.0344 shoot=-0.4472 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.00 days: error (%) tot=-2.5908 root=-2.1922 alloc=+0.0344 shoot=-0.4329 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.10 days: error (%) tot=-2.6295 root=-2.2310 alloc=+0.0344 shoot=-0.4329 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.20 days: error (%) tot=-2.6370 root=-2.2386 alloc=+0.0344 shoot=-0.4327 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.30 days: error (%) tot=-2.6014 root=-2.2084 alloc=+0.0339 shoot=-0.4269 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.40 days: error (%) tot=-2.5197 root=-2.1391 alloc=+0.0329 shoot=-0.4135 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.50 days: error (%) tot=-2.4930 root=-2.1046 alloc=+0.0319 shoot=-0.4203 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.60 days: error (%) tot=-2.5136 root=-2.0968 alloc=+0.0352 shoot=-0.4520 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.70 days: error (%) tot=-2.4367 root=-2.0499 alloc=+0.0383 shoot=-0.4251 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.80 days: error (%) tot=-2.4849 root=-2.0881 alloc=+0.0378 shoot=-0.4346 for maize_1_1	1x
+PlantCarbonBalance: balance error at +31.90 days: error (%) tot=-2.4874 root=-2.1049 alloc=+0.0378 shoot=-0.4202 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.00 days: error (%) tot=-2.4916 root=-2.1228 alloc=+0.0378 shoot=-0.4066 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.10 days: error (%) tot=-2.5210 root=-2.1523 alloc=+0.0378 shoot=-0.4066 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.20 days: error (%) tot=-2.5278 root=-2.1592 alloc=+0.0378 shoot=-0.4065 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.30 days: error (%) tot=-2.4970 root=-2.1328 alloc=+0.0373 shoot=-0.4016 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.40 days: error (%) tot=-2.4254 root=-2.0717 alloc=+0.0364 shoot=-0.3900 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.50 days: error (%) tot=-2.3486 root=-2.0041 alloc=+0.0351 shoot=-0.3795 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.60 days: error (%) tot=-2.3650 root=-1.9919 alloc=+0.0338 shoot=-0.4070 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.70 days: error (%) tot=-2.3907 root=-1.9665 alloc=+0.0198 shoot=-0.4441 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.80 days: error (%) tot=-2.3681 root=-1.9496 alloc=+0.0234 shoot=-0.4420 for maize_1_1	1x
+PlantCarbonBalance: balance error at +32.90 days: error (%) tot=-2.3453 root=-1.9406 alloc=+0.0234 shoot=-0.4282 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.00 days: error (%) tot=-2.3260 root=-1.9338 alloc=+0.0234 shoot=-0.4156 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.10 days: error (%) tot=-2.3993 root=-2.0071 alloc=+0.0234 shoot=-0.4156 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.20 days: error (%) tot=-2.4239 root=-2.0318 alloc=+0.0234 shoot=-0.4155 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.30 days: error (%) tot=-2.3992 root=-2.0111 alloc=+0.0232 shoot=-0.4112 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.40 days: error (%) tot=-2.3415 root=-1.9628 alloc=+0.0227 shoot=-0.4014 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.50 days: error (%) tot=-2.2742 root=-1.9070 alloc=+0.0233 shoot=-0.3905 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.60 days: error (%) tot=-2.2960 root=-1.9029 alloc=+0.0226 shoot=-0.4157 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.70 days: error (%) tot=-2.3098 root=-1.8774 alloc=+0.0154 shoot=-0.4479 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.80 days: error (%) tot=-2.2728 root=-1.8571 alloc=+0.0153 shoot=-0.4310 for maize_1_1	1x
+PlantCarbonBalance: balance error at +33.90 days: error (%) tot=-2.2527 root=-1.8489 alloc=+0.0153 shoot=-0.4191 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.00 days: error (%) tot=-2.3394 root=-1.9356 alloc=+0.0153 shoot=-0.4191 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.10 days: error (%) tot=-2.3688 root=-1.9650 alloc=+0.0153 shoot=-0.4191 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.20 days: error (%) tot=-2.3682 root=-1.9645 alloc=+0.0153 shoot=-0.4191 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.30 days: error (%) tot=-2.3473 root=-1.9471 alloc=+0.0152 shoot=-0.4154 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.40 days: error (%) tot=-2.2968 root=-1.9053 alloc=+0.0149 shoot=-0.4064 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.50 days: error (%) tot=-2.2352 root=-1.8538 alloc=+0.0141 shoot=-0.3955 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.60 days: error (%) tot=-2.2373 root=-1.8415 alloc=+0.0137 shoot=-0.4095 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.70 days: error (%) tot=-2.2167 root=-1.8090 alloc=+0.0135 shoot=-0.4212 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.80 days: error (%) tot=-2.1795 root=-1.7869 alloc=+0.0134 shoot=-0.4059 for maize_1_1	1x
+PlantCarbonBalance: balance error at +34.90 days: error (%) tot=-2.1747 root=-1.7935 alloc=+0.0134 shoot=-0.3946 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.00 days: error (%) tot=-2.2045 root=-1.8233 alloc=+0.0134 shoot=-0.3946 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.10 days: error (%) tot=-2.2123 root=-1.8311 alloc=+0.0134 shoot=-0.3946 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.20 days: error (%) tot=-2.2121 root=-1.8309 alloc=+0.0134 shoot=-0.3946 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.30 days: error (%) tot=-2.1937 root=-1.8157 alloc=+0.0133 shoot=-0.3913 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.40 days: error (%) tot=-2.1489 root=-1.7787 alloc=+0.0131 shoot=-0.3833 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.50 days: error (%) tot=-2.0947 root=-1.7336 alloc=+0.0124 shoot=-0.3736 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.60 days: error (%) tot=-2.0704 root=-1.7073 alloc=+0.0122 shoot=-0.3753 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.70 days: error (%) tot=-2.0654 root=-1.6910 alloc=+0.0120 shoot=-0.3864 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.80 days: error (%) tot=-2.0351 root=-1.6768 alloc=+0.0119 shoot=-0.3702 for maize_1_1	1x
+PlantCarbonBalance: balance error at +35.90 days: error (%) tot=-2.0436 root=-1.6931 alloc=+0.0119 shoot=-0.3624 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.00 days: error (%) tot=-2.0615 root=-1.7110 alloc=+0.0119 shoot=-0.3624 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.10 days: error (%) tot=-2.0651 root=-1.7146 alloc=+0.0119 shoot=-0.3624 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.20 days: error (%) tot=-2.0651 root=-1.7146 alloc=+0.0119 shoot=-0.3624 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.30 days: error (%) tot=-2.0487 root=-1.7010 alloc=+0.0118 shoot=-0.3595 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.40 days: error (%) tot=-2.0081 root=-1.6674 alloc=+0.0117 shoot=-0.3524 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.50 days: error (%) tot=-1.9579 root=-1.6255 alloc=+0.0112 shoot=-0.3435 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.60 days: error (%) tot=-1.9233 root=-1.5935 alloc=+0.0108 shoot=-0.3406 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.70 days: error (%) tot=-1.9041 root=-1.5712 alloc=+0.0107 shoot=-0.3436 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.80 days: error (%) tot=-1.8715 root=-1.5544 alloc=+0.0107 shoot=-0.3278 for maize_1_1	1x
+PlantCarbonBalance: balance error at +36.90 days: error (%) tot=-1.8808 root=-1.5661 alloc=+0.0107 shoot=-0.3254 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.00 days: error (%) tot=-1.8892 root=-1.5744 alloc=+0.0107 shoot=-0.3254 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.10 days: error (%) tot=-1.8902 root=-1.5755 alloc=+0.0107 shoot=-0.3254 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.20 days: error (%) tot=-1.8901 root=-1.5754 alloc=+0.0107 shoot=-0.3254 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.30 days: error (%) tot=-1.8794 root=-1.5664 alloc=+0.0107 shoot=-0.3236 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.40 days: error (%) tot=-1.8469 root=-1.5438 alloc=+0.0149 shoot=-0.3180 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.50 days: error (%) tot=-1.8021 root=-1.5066 alloc=+0.0147 shoot=-0.3103 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.60 days: error (%) tot=-1.7597 root=-1.4712 alloc=+0.0144 shoot=-0.3029 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.70 days: error (%) tot=-1.7599 root=-1.4637 alloc=+0.0142 shoot=-0.3104 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.80 days: error (%) tot=-1.7317 root=-1.4509 alloc=+0.0142 shoot=-0.2950 for maize_1_1	1x
+PlantCarbonBalance: balance error at +37.90 days: error (%) tot=-1.7462 root=-1.4655 alloc=+0.0142 shoot=-0.2949 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.00 days: error (%) tot=-1.7524 root=-1.4717 alloc=+0.0142 shoot=-0.2949 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.10 days: error (%) tot=-1.7520 root=-1.4713 alloc=+0.0142 shoot=-0.2949 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.20 days: error (%) tot=-1.7518 root=-1.4711 alloc=+0.0142 shoot=-0.2949 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.30 days: error (%) tot=-1.7427 root=-1.4635 alloc=+0.0141 shoot=-0.2933 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.40 days: error (%) tot=-1.7150 root=-1.4449 alloc=+0.0185 shoot=-0.2887 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.50 days: error (%) tot=-1.6763 root=-1.4124 alloc=+0.0183 shoot=-0.2822 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.60 days: error (%) tot=-1.6553 root=-1.3910 alloc=+0.0180 shoot=-0.2823 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.70 days: error (%) tot=-1.6470 root=-1.3766 alloc=+0.0179 shoot=-0.2883 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.80 days: error (%) tot=-1.6162 root=-1.3580 alloc=+0.0180 shoot=-0.2762 for maize_1_1	1x
+PlantCarbonBalance: balance error at +38.90 days: error (%) tot=-1.6080 root=-1.3573 alloc=+0.0180 shoot=-0.2687 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.00 days: error (%) tot=-1.6203 root=-1.3695 alloc=+0.0180 shoot=-0.2687 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.10 days: error (%) tot=-1.6238 root=-1.3730 alloc=+0.0180 shoot=-0.2687 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.20 days: error (%) tot=-1.6237 root=-1.3729 alloc=+0.0180 shoot=-0.2687 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.30 days: error (%) tot=-1.6130 root=-1.3639 alloc=+0.0178 shoot=-0.2670 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.40 days: error (%) tot=-1.5866 root=-1.3416 alloc=+0.0176 shoot=-0.2626 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.50 days: error (%) tot=-1.5544 root=-1.3145 alloc=+0.0173 shoot=-0.2572 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.60 days: error (%) tot=-1.5272 root=-1.2906 alloc=+0.0170 shoot=-0.2536 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.70 days: error (%) tot=-1.5289 root=-1.2853 alloc=+0.0168 shoot=-0.2604 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.80 days: error (%) tot=-1.5054 root=-1.2758 alloc=+0.0168 shoot=-0.2464 for maize_1_1	1x
+PlantCarbonBalance: balance error at +39.90 days: error (%) tot=-1.5200 root=-1.2905 alloc=+0.0168 shoot=-0.2463 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.00 days: error (%) tot=-1.5259 root=-1.2964 alloc=+0.0168 shoot=-0.2463 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.10 days: error (%) tot=-1.5260 root=-1.2964 alloc=+0.0168 shoot=-0.2463 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.20 days: error (%) tot=-1.5261 root=-1.2965 alloc=+0.0168 shoot=-0.2463 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.30 days: error (%) tot=-1.5170 root=-1.2888 alloc=+0.0167 shoot=-0.2449 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.40 days: error (%) tot=-1.4943 root=-1.2696 alloc=+0.0165 shoot=-0.2412 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.50 days: error (%) tot=-1.4666 root=-1.2462 alloc=+0.0162 shoot=-0.2367 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.60 days: error (%) tot=-1.4505 root=-1.2304 alloc=+0.0165 shoot=-0.2366 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.70 days: error (%) tot=-1.4333 root=-1.2131 alloc=+0.0163 shoot=-0.2365 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.80 days: error (%) tot=-1.4108 root=-1.1985 alloc=+0.0163 shoot=-0.2286 for maize_1_1	1x
+PlantCarbonBalance: balance error at +40.90 days: error (%) tot=-1.4150 root=-1.2038 alloc=+0.0163 shoot=-0.2275 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.00 days: error (%) tot=-1.4191 root=-1.2080 alloc=+0.0163 shoot=-0.2275 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.10 days: error (%) tot=-1.4196 root=-1.2084 alloc=+0.0163 shoot=-0.2275 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.20 days: error (%) tot=-1.4196 root=-1.2084 alloc=+0.0163 shoot=-0.2275 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.30 days: error (%) tot=-1.4113 root=-1.2013 alloc=+0.0162 shoot=-0.2261 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.40 days: error (%) tot=-1.3902 root=-1.1834 alloc=+0.0160 shoot=-0.2227 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.50 days: error (%) tot=-1.3663 root=-1.1631 alloc=+0.0157 shoot=-0.2189 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.60 days: error (%) tot=-1.3866 root=-1.1697 alloc=+0.0154 shoot=-0.2323 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.70 days: error (%) tot=-1.3647 root=-1.1522 alloc=+0.0154 shoot=-0.2279 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.80 days: error (%) tot=-1.3448 root=-1.1380 alloc=+0.0153 shoot=-0.2221 for maize_1_1	1x
+PlantCarbonBalance: balance error at +41.90 days: error (%) tot=-1.3337 root=-1.1339 alloc=+0.0153 shoot=-0.2150 for maize_1_1	1x
+PlantCarbonBalance: balance error at +42.00 days: error (%) tot=-1.3490 root=-1.1493 alloc=+0.0153 shoot=-0.2150 for maize_1_1	1x
 ReadXMLfile: Setting default maximum time step to 0.1	1x
+RelativeCarbonAllocation2ShootPotentialGrowth: Not enough carbon for potential growth. Setting shoot growth to max available carbon.	632x
+RootBrances: fixing TimeShift error for finelateral - check your branching rules. This may also happen if the growth rate of the parent root is increasing over time.	4x
+RootBrances: fixing TimeShift error for lateral - check your branching rules. This may also happen if the growth rate of the parent root is increasing over time.	8x
 RootDataPoints:: "/simulationControls/integrationParameters/maxTimeBetweenRootNodes" not set, but note that the default is 100 days for backward compatibility - meaning that nodes are created mostly based on distance. Setting this with a much smaller time will increase precision, but also the number of nodes if you have slow growing roots.	1x
+RootGrowthScalingFactor: result is greater than 1	424x
+RootSegmentLength: length based on estimated code, but this should not be the case as nodes are not created based on estimates.	35x
+RootSegmentLength: length based on estimated code, but this should not be the case as nodes are not created based on estimates. (2)	3342x
 RootSegmentRespirationRate: Reduction due to RCA simulated.	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/shadedStomatalResistancenot found, using default value of 100 m/s	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/stomatalResistancenot found, using default value of 100 m/s	1x
-StomatalResistance: dailyBulkStomatalResistance as sibling of /origin/plants/sunlitStomatalResistancenot found, using default value of 100 m/s	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 2.600000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 21.500000 setting value to 4162.821791	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 21.600000 setting value to 7224.450801	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 23.500000 setting value to 277.265214	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 32.600000 setting value to 7402.392652	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 32.700000 setting value to 7402.392652	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 37.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating bundleSheathCO2Concentration at time 38.300000 setting value to 402.900000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating carbonLimitedPhotosynthesisRate at time 2.600000 setting value to 10.571428	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.500000 setting value to 37.563802	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.600000 setting value to 43.043034	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 23.500000 setting value to 25.186328	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.600000 setting value to 37.856721	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 2.600000 setting value to 10.571428	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 37.300000 setting value to 17.398816	1x
+SimulaDerivative: Not converging after 40 iterations. Estimating photosynthesisRateFarquhar at time 38.300000 setting value to 16.839235	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 2.600000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 21.500000 setting value to 4162.821791	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 21.600000 setting value to 7224.450801	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 23.500000 setting value to 277.265214	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.600000 setting value to 7402.392652	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 32.700000 setting value to 7402.392652	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 37.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating bundleSheathCO2Concentration at time 38.300000 setting value to 402.900000	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating carbonLimitedPhotosynthesisRate at time 2.600000 setting value to 10.571428	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.500000 setting value to 37.563802	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 21.600000 setting value to 43.043034	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 23.500000 setting value to 25.186328	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.600000 setting value to 37.856721	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 32.700000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 37.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating lightLimitedPhotosynthesisRate at time 38.300000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating meanStomatalConductance at time 17.600000 setting value to 0.213972	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 2.600000 setting value to 10.571428	8x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.400000 setting value to 13.347374	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.450000 setting value to 13.347374	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.450000 setting value to 13.661778	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.500000 setting value to 12.071027	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.500000 setting value to 6.977303	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.550000 setting value to 12.071027	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.550000 setting value to 13.347374	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 21.600000 setting value to 7.174063	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.350000 setting value to 29.925602	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.450000 setting value to 13.526875	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.450000 setting value to 13.737140	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.450000 setting value to 31.719981	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.450000 setting value to 7.469410	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.500000 setting value to 13.652231	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.500000 setting value to 7.806101	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.550000 setting value to 13.652231	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.550000 setting value to 14.246100	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 22.550000 setting value to 39.980588	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.350000 setting value to 30.470243	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.450000 setting value to 13.293879	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.450000 setting value to 13.520694	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.450000 setting value to 7.473365	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.500000 setting value to 7.473365	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.550000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.550000 setting value to 13.973059	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.550000 setting value to 13.980997	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.550000 setting value to 43.946162	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 23.650000 setting value to 8.313001	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.450000 setting value to 10.705931	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.450000 setting value to 12.924173	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.500000 setting value to 12.809417	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.550000 setting value to 37.110669	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 24.650000 setting value to 19.159010	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.400000 setting value to 7.618490	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.450000 setting value to 18.069838	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.550000 setting value to 12.560942	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.550000 setting value to 12.656517	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.550000 setting value to 35.798034	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 26.550000 setting value to 7.261777	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.400000 setting value to 8.332971	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.450000 setting value to 18.894477	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.550000 setting value to 12.286577	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 27.550000 setting value to 7.969213	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.600000 setting value to 36.323956	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.650000 setting value to 0.000000	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 32.700000 setting value to 0.000000	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.300000 setting value to 17.089099	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 37.300000 setting value to 17.398816	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 38.300000 setting value to 16.428227	3x
+SimulaDerivative: Not converging after 50 iterations. Estimating photosynthesisRateFarquhar at time 38.300000 setting value to 16.839235	2x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 20.500000 setting value to 2.764854	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 20.500000 setting value to 2.764855	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 24.600000 setting value to 135.008087	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating simplePotentialTranspirationRate at time 33.650000 setting value to 699.830989	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 21.600000 setting value to 0.148170	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 21.700000 setting value to 0.120751	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 24.350000 setting value to 0.225061	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 24.650000 setting value to 0.176791	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 27.550000 setting value to 0.098470	1x
+SimulaDerivative: Not converging after 50 iterations. Estimating stomatalConductance at time 31.450000 setting value to 0.162345	1x
+SimulaExternal:: locked, and it has no predictor. This is likely to cause extrapolation warnings. 	35957490x
+SimulaTable:: Extrapolation at end of table bottomBoundaryFluxRate	54x
+SimulaTable:: Extrapolation at end of table hydraulicHeadAtRootSurface	564401x
+SimulaTable:: Extrapolation at end of table rootSegmentWaterUptakeRate	7802x
+SimulaTable:: Extrapolation at end of table rootWaterOutflowRate	2x
+SimulaTable:: Extrapolation at end of table topBoundaryFluxRate	54x
+SimulaTable:: Extrapolation at end of table totalSinkRate	54x
+SimulaTable:: Extrapolation at end of table volumetricWaterContentAtTheRootSurface	354386x
 SumCarbonCosts: Did not find rootCarbonCostOfBiologicalNitrogenFixation. And thus not including it in the costs.	1x
 SumCarbonCosts: Did not find rootCarbonCostOfNutrientUptake. And thus not including it in the costs.	1x
+Swms3d::getTimeStepSWMS:: wallTime before lastTime, this is bad - ignoring wall time.	56x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 29.200000, continuing with an error of (ml) -0.000168	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 29.850000, continuing with an error of (ml) 0.000187	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 3.600000, continuing with an error of (ml) 0.001145	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 32.050000, continuing with an error of (ml) 0.000128	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 32.200000, continuing with an error of (ml) -0.000500	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 33.100000, continuing with an error of (ml) -0.000192	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 33.150000, continuing with an error of (ml) 0.000289	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 33.800000, continuing with an error of (ml) 0.000315	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.000000, continuing with an error of (ml) -0.000178	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.050000, continuing with an error of (ml) 0.000265	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.900000, continuing with an error of (ml) 0.000199	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 34.950000, continuing with an error of (ml) 0.000159	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.000000, continuing with an error of (ml) 0.000390	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.050000, continuing with an error of (ml) 0.000412	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.150000, continuing with an error of (ml) 0.000329	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.200000, continuing with an error of (ml) 0.000359	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.250000, continuing with an error of (ml) -0.000563	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 35.800000, continuing with an error of (ml) 0.000408	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 36.150000, continuing with an error of (ml) 0.000475	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 36.300000, continuing with an error of (ml) 0.000652	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 36.800000, continuing with an error of (ml) 0.000140	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.100000, continuing with an error of (ml) 0.000184	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.150000, continuing with an error of (ml) 0.000261	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.200000, continuing with an error of (ml) 0.000253	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.250000, continuing with an error of (ml) -0.001046	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.300000, continuing with an error of (ml) 0.001937	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.800000, continuing with an error of (ml) 0.000529	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 37.900000, continuing with an error of (ml) 0.000344	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 38.300000, continuing with an error of (ml) 0.000674	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 39.000000, continuing with an error of (ml) -0.000647	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 39.800000, continuing with an error of (ml) 0.000703	1x
+WaterUptakeDoussanModel: Can not find accurate solution for Doussan model at time = 40.100000, continuing with an error of (ml) 0.000463	1x
 vanGenuchten: Setting minimum conductivity, which can prevent the water model from crashing.	1x
